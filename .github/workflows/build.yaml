@@ -23,5 +23,4 @@ jobs:
 
       - name: Deploy to S3 bucket
         run: aws s3 sync ./website/ s3://${{ secrets.S3_BUCKET }} --delete
-        if: steps.bucket-check.outputs.exit_code == 0
         continue-on-error: true
