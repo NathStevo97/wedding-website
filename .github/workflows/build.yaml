@@ -23,6 +23,7 @@ jobs:
 
       - name: Check S3 Bucket Exists
         id: bucket-check
+        continue-on-error: true
         run: |
           echo "Checking S3 bucket exists..."
           aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
