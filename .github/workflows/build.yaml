@@ -28,7 +28,6 @@ jobs:
           aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
           echo ::set-output name=exit_code::$?
 
-
       - name: Deploy to S3 bucket
         run: aws s3 sync ./website/ s3://${{ secrets.S3_BUCKET }} --delete
-        if: steps.bucket-check.outcome == 'success'
+        if: steps.bucket-check.outputs.exit_code == 0
