@@ -25,7 +25,7 @@ jobs:
         id: bucket-check
         run: |
           echo "Checking S3 bucket exists..."
-          aws s3 ls "s3://${BUCKET_NAME}"
+          aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
           echo ::set-output name=exit_code::$?
 
 
