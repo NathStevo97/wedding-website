@@ -24,10 +24,11 @@ jobs:
       - name: Check S3 Bucket Exists
         id: bucket-check
         run: |
-          aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
+          echo "Checking S3 bucket exists..."
+          aws s3 ls "s3://${BUCKET_NAME}"
           echo ::set-output name=exit_code::$?
-        continue-on-error: true
+
 
       - name: Deploy to S3 bucket
         run: aws s3 sync ./website/ s3://${{ secrets.S3_BUCKET }} --delete
-        if: steps.bucket-check.outputs.exit_code == 0
+        if: steps.bucket-check.outcome == 'success'
