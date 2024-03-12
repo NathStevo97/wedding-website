@@ -21,5 +21,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
-      #- name: Check S3 Bucket Exists
-      #  run: aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
+      - name: Check S3 Bucket Exists
+        id: bucket-check
+        run: |
+          aws s3 ls "s3://${{ secrets.S3_BUCKET }}"
+          echo ::set-output name=exit_code::$?
+
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./website/ s3://${{ secrets.S3_BUCKET }} --delete
+        if: steps.bucket-check.outputs.exit_code == 1
