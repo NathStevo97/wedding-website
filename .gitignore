@@ -8,4 +8,5 @@
 *.tfstate
 **/.tfstate.*
 
-**/*.tfvarsc
+**/*.tfvars
+infra/terraform.tfvars
