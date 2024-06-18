@@ -4,6 +4,7 @@ locals {
 
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket = local.www_domain
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "static_website_bucket_config" {
@@ -65,6 +66,7 @@ resource "aws_s3_bucket_policy" "public_read_policy" {
 
 resource "aws_s3_bucket" "redirect_bucket" {
   bucket = var.domain_name
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_website_configuration" "redirect_bucket_config" {
@@ -100,4 +102,18 @@ resource "aws_s3_bucket_public_access_block" "redirect_bucket_public_access" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
+}
+
+# Upload Objects
+
+resource "null_resource" "upload_to_s3" {
+  provisioner "local-exec" {
+    command = "aws s3 sync ../site s3://${aws_s3_bucket.static_website_bucket.id}"
+  }
+}
+
+resource "null_resource" "upload_to_s3_redirect" {
+  provisioner "local-exec" {
+    command = "aws s3 sync ../site s3://${aws_s3_bucket.redirect_bucket.id}"
+  }
 }
