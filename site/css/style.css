@@ -36,7 +36,7 @@ img {
 }
 
 .container {
-    max-width: 1140px;
+    max-width: 1180px;
     margin: auto;
 }
 
@@ -676,10 +676,9 @@ header, section, footer {
 }
 
 .people-section .people-item {
-    flex: 0 0 25%;
+    flex: 0 0 20%;
     max-width: 25%;
     padding: 15px;
-    margin-top: 25px;
     display: none;
 }
 
