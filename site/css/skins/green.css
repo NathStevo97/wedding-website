@@ -1,6 +1,7 @@
 .btn-1:hover,
 .event-section .event-item-inner span,
 .accommodation-section .accommodation-item-inner span,
+.faq-section .faq-item-inner span,
 .story-section .story-item i,
 .story-section .story-text h3,
 .couple-section .couple h3,
@@ -13,6 +14,7 @@
 .btn-1,
 .event-section .event-item-inner::before,
 .accommodation-section .accommodation-item-inner::before,
+.faq-section .faq-item-inner::before,
 .couple-section .couple img {
     border-color: #b6c1a2;
 }
