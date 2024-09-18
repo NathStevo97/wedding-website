@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe and Nathan's Wedding</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="header row container">
+            <a href="#" class="logo mobile"><img src="./img/Logo.png" alt=""></a>
+            <div class="toggleMenu" onclick="toggleMenu();"></div>
+            <nav class="navigation row">
+                <ul class="row">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#story-container">Our story</a></li>
+                    <li><a href="#venue-container">Venue</a></li>
+                    <!-- <li class="desktop"><a href="#"><img src="./img/Logo.png" alt="" width = "50%" height = "50%"></a></li> -->
+                    <li class="desktop"><a href="#"><img src="./img/Logo.png" alt=""></a></li>
+                    <li><a href="#itin-container">Itinerary</a></li>
+                    <li><a href="#">Registry</a></li>
+                    <li><a href="#rsvp-container">RSVP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- End Navigation -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content row container" id="hero-container">
+            <div>
+                <h2>Please join us to celebrate</h2>
+                <h1>Chloe <span>&</span> Nathan</h1>
+                <h2>Wednesday July 9th, 2025 - Lemmington Hall, Alnwick</h2>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section -->
+
+    <!-- Story -->
+    <section class="story"  id="story-container">
+        <div class="container">
+            <h1>Our Story</h1>
+            <div class="story-content">
+                <div class="row flex">
+                    <div>
+                        <h5>May 2019</h5>
+                        <h2>We meet</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore voluptas veniam
+                            quis ipsa reiciendis, optio tempora incidunt dolorem est eius ullam adipisci assumenda non
+                            dignissimos praesentium at sunt cupiditate.</p>
+                    </div>
+                    <div class="img row"><img src="./img/Engagement_Party.jpg" alt=""></div>
+                </div>
+                <div class="row flex">
+                    <div>
+                        <h5>Jun 2022</h5>
+                        <h2>Is it love?</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente inventore voluptas veniam
+                            quis ipsa reiciendis, optio tempora incidunt dolorem est eius ullam adipisci assumenda non
+                            dignissimos praesentium at sunt cupiditate.</p>
+                    </div>
+                    <div class="img row"><img src="./img/Engagement_Party.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Story -->
+
+
+    <!-- The Venue -->
+    <section class="venue"  id="venue-container">
+        <div class="row flex container">
+            <div class="venue-content">
+                <h5>The Venue</h5>
+                <h2>Lemmington Hall</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <div>
+                    <p>Lemmington Hall</p>
+                    <p>Alnwick, NE66 2BH</p>
+                </div>
+            </div>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="./img/lemmington-hall-1.jpeg" alt=""></div>
+                  <div class="swiper-slide"><img src="./img/lemmington-hall-2.jpeg" alt=""></div>
+                  <div class="swiper-slide"><img src="./img/lemmington-hall-3.jpeg" alt=""></div>
+                </div>
+              </div>
+        </div>
+    </section>
+    <!-- End Venue -->
+
+    <!-- Accommodation -->
+    <section class="accommodation" id="accom-container">
+        <div class="container">
+            <h2>Accommodation</h2>
+            <div class="a-cards column">
+                <div class="a-card">
+                    <h3>Hotel 1</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="#" class="page-btn">Book</a>
+                </div>
+                <div class="a-card">
+                    <h3>Hotel 2</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="#" class="page-btn">Book</a>
+                </div>
+                <div class="a-card">
+                    <h3>Hotel 3</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <a href="#" class="page-btn">Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Accommodation -->
+
+    <!-- Bridal Party -->
+    <section class="bridal" id="bridal-container">
+        <div class="container">
+            <h2>The Bridal Party</h2>
+            <div class="filters row flex">
+                <div class="filter-btns row">
+                    <div class="filter-btn active" data-tab="1">Team Groom</div>
+                    <div class="filter-btn" data-tab="2">Team Bride</div>
+                </div>
+                <div class="filter-cards row tab1 t-active">
+                    <div>
+                        <img src="./img/dave.jpg" alt="">
+                        <h4>David McDermid</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                    <div>
+                        <img src="./img/cook.jpg" alt="">
+                        <h4>Josh Cook</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                    <div>
+                        <img src="./img/vic.png" alt="">
+                        <h4>Victoria Atkinson</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                </div>
+                <div class="filter-cards row tab2">
+                    <div>
+                        <img src="./img/amy.jpg" alt="">
+                        <h4>Amy Thornton</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                    <div>
+                        <img src="./img/jasmine.jpg" alt="">
+                        <h4>Jasmine Guy</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                    <div>
+                        <img src="./img/kirstie.jpg" alt="">
+                        <h4>Kirstie Wood</h4>
+                        <p>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, delectus magnam dolorem repellat laudantium rem voluptatem adipisci odio laborum, asperiores corporis, cumque saepe veniam corrupti placeat. Esse quasi quas temporibus!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary -->
+    <!-- Itinerary -->
+    <section class="itinerary">
+        <div class="container"  id="itin-container">
+            <h2>Itinerary</h2>
+            <div class="filter-btns row">
+                <div class="filter-btn active" data-tab="1">8th July 2025</div>
+                <div class="filter-btn" data-tab="2">9th July 2025</div>
+                <div class="filter-btn" data-tab="3">10th July 2025</div>
+            </div>
+            <div class="filter-cards tab1 t-active">
+                <div class="row">
+                    <div class="time">
+                        <h5>10am</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="time">
+                        <h5>12pm</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-cards tab2">
+                <div class="row">
+                    <div class="time">
+                        <h5>10am</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="time">
+                        <h5>12pm</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-cards tab3">
+                <div class="row">
+                    <div class="time">
+                        <h5>10am</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="time">
+                        <h5>12pm</h5>
+                    </div>
+                    <div>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                        <h3>Item Title</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni unde enim vel. Incidunt, quia
+                            maiores minima reiciendis perspiciatis culpa repellendus fugiat nam eaque ex at quae
+                            blanditiis,
+                            quaerat, ipsam asperiores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Itinerary -->
+
+     <!-- Registry -->
+      <section class="registry row flex container">
+        <div>
+            <h2>Registry</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="registry-cards column">
+            <div><img src="./img/logo1.svg" alt=""></div>
+            <div><img src="./img/logo2.svg" alt=""></div>
+            <!-- <div><img src="./img/logo.png" alt=""></div>
+            <div><img src="./img/logo.png" alt=""></div> -->
+        </div>
+     </section>
+     <!-- End Registry -->
+
+     <!-- RSVP -->
+     <section class="rsvp" id="rsvp-container">
+        <div class="container">
+            <h2>RSVP</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ad ex quos eligendi quia amet, tenetur delectus ut quae dolores obcaecati minima quod omnis, unde consequatur eius assumenda quaerat! Voluptate.</p>
+            <form action="">
+                <div class="form row">
+                    <div class="input row">
+                        <label form="">First Name <span>*</span></label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="input row">
+                        <label form="">Last Name <span>*</span></label>
+                        <input type="text" name="" id="">
+                    </div>
+                    <div class="input row">
+                        <label form="">Email Address<span>*</span></label>
+                        <input type="email" name="" id="">
+                    </div>
+                    <div class="input row">
+                        <label form="">Number of Guests<span>*</span></label>
+                        <input type="number" name="" id="">
+                    </div>
+                    <div class="input row">
+                        <label form="">Attendance<span>*</span></label>
+                        <div class="option row">
+                            <div class="row">
+                                <input type="checkbox" name="" id="">
+                                Accept with Pleasure
+                            </div>
+                            <div class="row">
+                                <input type="checkbox" name="" id="">
+                                Regretfully Decline
+                            </div>
+                            <div class="row">
+                                <input type="checkbox" name="" id="">
+                                Ceremony
+                            </div>
+                            <div class="row">
+                                <input type="checkbox" name="" id="">
+                                Reception
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="page-btn row">Submit</button>
+            </form>
+        </div>
+     </section>
+     <!-- End RSVP -->
+
+     <!-- Footer -->
+     <footer class="container">
+        <ul class="row">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Venue</a></li>
+            <li><a href="#">Itinerary</a></li>
+            <li><a href="#">Registry</a></li>
+            <li><a href="#">RSVP</a></li>
+        </ul>
+        <p class="copy-right">&copy; 2023. Nathan Stephenson All Rights Reserved</p>
+     </footer>
+      <!-- End Footer -->
+</body>
+</html>
