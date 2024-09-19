@@ -9,7 +9,8 @@
     .gallery-section .gallery-item,
     .people-section .people-item,
     .event-section .event-item,
-    .accommodation-section .accommodation-item {
+    .accommodation-section .accommodation-item,
+    .faq-section .faq-item {
         flex: 0 0 50%;
         max-width: 50%;
     }
@@ -88,6 +89,7 @@
 
     .event-section .event-item,
     .accommodation-section .accommodation-item,
+    .faq-section .faq-item,
     .story-section .story-text, .story-section .story-img {
         flex: 0 0 100%;
         max-width: 100%;
