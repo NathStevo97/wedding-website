@@ -721,6 +721,26 @@ header, section, footer {
 }
 
 .registry-section .registry-description {
+    gap: 0.5em;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 60px;
+    text-align: center;
+    position: relative;
+    margin: auto;
+}
+
+.registry-section .registry-description .p {
+    padding: 0 60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.registry-section .registry-cards {
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    justify-items: center;
+    gap: 0.5em;
+    display: grid;
     flex: 0 0 50%;
     max-width: 50%;
     padding: 0 60px;
@@ -728,10 +748,8 @@ header, section, footer {
     position: relative;
 }
 
-.registry-cards {
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-    justify-items: center;
-    gap: 0.5em;
+.registry-section .registry-cards .img {
+    max-width: 100%;
 }
 
 /* FAQ Section */
