@@ -169,7 +169,13 @@
     <div class="container">
         <div class="row">
             <div class="section-title">
-                <h2>Join Us to Celebrate</h2>
+                <h2>The Venue</h2>
+                <p>Lemmington Hall, Alnwick NE66 2BH</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="event-map justify-content-center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2265.854318457957!2d-1.8130670231410044!3d55.39544747295406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487dff004644f3d3%3A0xd1e32aa9f7eb5cd8!2sLemmington%20Hall!5e0!3m2!1sen!2suk!4v1726852594238!5m2!1sen!2suk" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -179,14 +185,6 @@
                     <h3> Ceremony </h3>
                     <span class="date">Wednesday 9th July, 2025</span>
                     <span class="time">13:00 - 14:00</span>
-                    <p>
-                        Lemmington Hall
-                    </p>
-                    <p>
-                        Alnwick,
-                        NE66 2BH,
-                        United Kingdom
-                    </p>
                 </div>
             </div>
             <!-- Item End -->
@@ -196,14 +194,6 @@
                     <h3> Reception </h3>
                     <span class="date">Wednesday 9th July, 2025</span>
                     <span class="time">18:00 - 00:00 </span>
-                    <p>
-                        Lemmington Hall
-                    </p>
-                    <p>
-                        Alnwick,
-                        NE66 2BH,
-                        United Kingdom
-                    </p>
                 </div>
             </div>
             <!-- Item End -->
@@ -218,7 +208,11 @@
         <div class="row">
             <div class="section-title">
                 <h2>Accommodation</h2>
-                <p>Below are a few recommended choices of accommodation in the local area.</p>
+                <p>
+                    Below are a few recommended choices of accommodation in the local area.
+                    <br><br>
+                    Lemmington Hall has limited parking and is only a 10-minute drive from Alnwick, we therefore strongly advise pre-arranging transport to/from the venue via taxi.
+                </p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -275,17 +269,25 @@
             <div class="row">
                 <div class="registry-description">
                     <p>
-                        Your presence on our day is all we ask for, however if you would like to gift us in some other way, we kindly ask for a donation to either the National Autistic Society or Cancer research, two charities close to our hearts.
+                        Your presence on our day is all we ask for, however if you would like to gift us in some other way, we kindly ask for a donation to either the National Autistic Society or Cancer research, two charities close to our hearts. Select the desired logo to take you to the charity's site.
                         <br><br>
                         For any other gifts, a wishing well will be present at the venue reception.
                     </p>
                 </div>
                 <div class="registry-cards">
                     <div>
-                        <img src="./img/nas-1.png" alt="">
+                        <p>
+                            <a href="https://www.autism.org.uk/get-involved/donate">
+                                <img src="./img/nas-1.png" alt="The National Autistic Society Logo">
+                            </a>
+                        </p>
                     </div>
                     <div>
-                        <img src="./img/Cancer_Research_UK.svg" alt="">
+                        <p>
+                            <a href="https://donate.cancerresearchuk.org/donate">
+                                <img src="./img/Cancer_Research_UK.svg" alt="Cancer Research Charity Logo">
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -340,7 +342,7 @@
     <div class="container">
         <div class="row">
             <div class="section-title">
-                <h2>You are Invited</h2>
+                <h2>We can't wait to celebrate with you!</h2>
                 <p>Please kindly respond before 3rd December 2024</p>
             </div>
         </div>
@@ -348,34 +350,63 @@
             <div class="rsvp-form">
                 <form class="form" id="form">
                     <div class="row">
-                        <div class="input-group w50" name="Guest Name">
-                            <label for="Guest Name">Guest Name</label>
-                            <input type="text" placeholder="Guest Name" class="input-control" name="Guest Name">
+                        <div class="input-group w50" name="First Name">
+                            <label for="First Name">First Name*</label>
+                            <input type="text" placeholder="First Name" class="input-control" name="First Name" required>
                         </div>
                         <div class="input-group w50">
-                            <label for="Guest Email">Guest Email</label>
-                            <input type="text" placeholder="Email" class="input-control" name="Guest Email">
+                            <label for="Last Name">Last Name*</label>
+                            <input type="text" placeholder="Last Name" class="input-control" name="Last Name" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-group" name="Guest Email">
-                            <label for="Number of Guests">Number of Guests:</label>
-                            <select class="input-control" name="Number of Guests">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-
+                        <div class="input-group" name="Guest Contact">
+                            <label for="Guest Contact">Email or Phone Number*</label>
+                            <input type="text" placeholder="Email or Phone Number" class="input-control" name="Guest Contact" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <label for="RSVP Status">Attending/Not Attending?</label>
-                            <select class="input-control" name="RSVP Status">
+                            <label for="RSVP Status">Attending/Not Attending?*</label>
+                            <select class="input-control" name="RSVP Status" id="rsvp-status" required>
                                 <option value="I am attending">I am Attending</option>
                                 <option value="I am not attending">I am not Attending</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="row" id="meal-options">
+                        <div class="row">
+                            <div class="input-group">
+                                <label for="Starter">Starter Choice</label>
+                                <select class="input-control" name="Starter" id="starter-choice">
+                                    <option value="Starter Choice 1">Starter Choice 1</option>
+                                    <option value="Starter Choice 2">Starter Choice 2</option>
+                                    <option value="Starter Choice 3">Starter Choice 3</option>
+                                    <option value="Starter Choice 4">Starter Choice 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <label for="Main">Main Choice</label>
+                                <select class="input-control" name="Main" id="main-choice">
+                                    <option value="Main Choice 1">Main Choice 1</option>
+                                    <option value="Main Choice 2">Main Choice 2</option>
+                                    <option value="Main Choice 3">Main Choice 3</option>
+                                    <option value="Main Choice 4">Main Choice 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-group">
+                                <label for="Dessert">Dessert Choice</label>
+                                <select class="input-control" name="Dessert" id="dessert-choice">
+                                    <option value="Dessert Choice 1">Dessert Choice 1</option>
+                                    <option value="Dessert Choice 2">Dessert Choice 2</option>
+                                    <option value="Dessert Choice 3">Dessert Choice 3</option>
+                                    <option value="Dessert Choice 4">Dessert Choice 4</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -397,7 +428,7 @@
 <!-- RSVP Section End -->
 
 <!-- Copyright -->
-<p class="copyright-text">copyright  &copy; 2024 Nathan Stephenson</p>
+<p class="copyright-text">copyright  &copy; 2024 Nathan Stephenson & Chloe Timlin. natstephenson15@gmail.com</p>
 
 <!-- JQuery -->
 <script src="scripts/jquery.min.js"></script>
@@ -406,6 +437,7 @@
 <!-- Main -->
 <script src="scripts/main.js"></script>
 <!-- Form -->
+
 <script>
     const form = document.querySelector("#form")
     const submitButton = document.querySelector("#submit")
@@ -428,5 +460,41 @@
         )
     })
  </script>
+
+ <!-- Script moved to the end of the body -->
+<script>
+    // Get the form elements
+    const rsvpStatus = document.getElementById('rsvp-status');
+    const mealOptions = document.getElementById('meal-options');
+    const starterChoice = document.getElementById('starter-choice');
+    const mainChoice = document.getElementById('main-choice');
+    const dessertChoice = document.getElementById('dessert-choice');
+
+    // Function to toggle visibility and required attributes
+    function toggleMealOptions() {
+        if (rsvpStatus.value === 'I am attending') {
+            mealOptions.style.display = 'flex';  // Show the meal options
+            starterChoice.setAttribute('required', 'required');
+            mainChoice.setAttribute('required', 'required');
+            dessertChoice.setAttribute('required', 'required');
+        } else {
+            mealOptions.style.display = 'none';  // Hide the meal options
+            starterChoice.removeAttribute('required');
+            mainChoice.removeAttribute('required');
+            dessertChoice.removeAttribute('required');
+
+            // Set the values of meal choices to empty or N/A
+            starterChoice.value = "";
+            mainChoice.value = "";
+            dessertChoice.value = "";
+        }
+    }
+
+    // Add event listener to the RSVP status dropdown
+    rsvpStatus.addEventListener('change', toggleMealOptions);
+
+    // Call the function initially to set the correct state
+    toggleMealOptions();
+</script>
 </body>
 </html>

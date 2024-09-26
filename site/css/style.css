@@ -268,20 +268,6 @@ header, section, footer {
     font-weight: normal;
 }
 
-/* .home-section .slide.active .home-content p {
-    opacity: 0;
-    animation: fadeInTop 1s ease forwards;
-}
-@keyframes fadeInTop {
-    0%{
-        transform: translateY(-50px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
-    }
-} */
-
 .home-section .home-content h1 {
     font-size: 80px;
     color: #ffffff;
@@ -290,15 +276,6 @@ header, section, footer {
     /* font-family: 'Great Vibes', cursive; */
     font-family: "Playfair", cursive;
 }
-
-/* .home-section .slide.active .home-content h1 {
-    opacity: 0;
-    animation: fadeInTop 1s ease forwards;
-    animation-delay: 0.5s;
-} */
-
-/* ToDo: See if this can be changed to a button
-   OnClick should to take to RSVP section */
 
 .home-section .home-content span {
     font-size: 20px;
@@ -312,12 +289,6 @@ header, section, footer {
     /* font-family: 'Great Vibes', cursive; */
     font-family: "Playfair", cursive;
 }
-
-/* .home-section .slide.active .home-content span {
-    opacity: 0;
-    animation: fadeInTop 1s ease forwards;
-    animation-delay: 1s;
-} */
 
 .home-section .home-content a {
     border: 1px solid #ffffff;
@@ -498,11 +469,32 @@ header, section, footer {
 /* Event Section */
 
 .event-section {
-    padding: 80px 0 130px;
+    padding: 80px 0 100px 0px;
 }
 
 .event-section .section-title h2 {
     color: #ffffff;
+}
+
+.event-section .section-title p {
+    font-size: 30px;
+    color: #ffffff;
+    margin: 0 0 5px 0;
+    font-family: "Playfair", cursive;
+    font-weight: bold;
+}
+
+.event-section .event-map {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.event-section .event-map iframe {
+    padding: 10px 10px 10px 10px;
+    margin: auto;
 }
 
 .event-section .event-item {
@@ -567,15 +559,6 @@ header, section, footer {
     margin: 0;
 }
 
-.event-section .event-item-inner img {
-    position: absolute;
-    width: 40px;
-    left: 50%;
-    bottom: 18px;
-    z-index: -2;
-    margin-left: -20px;
-}
-
 /* Accommodation Section */
 
 .accommodation-section {
@@ -585,9 +568,10 @@ header, section, footer {
 .accommodation-section .accommodation-item {
     flex: 0 0 33.3%;
     max-width: 33.33%;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .accommodation-section .accommodation-item-inner {
@@ -595,8 +579,12 @@ header, section, footer {
     padding: 60px 45px 100px;
     text-align: center;
     box-shadow: 0 0 10px #888888;
+    display: flex;
+    flex-direction: column;
     flex: 0 0 100%;
     max-width: 100%;
+    height: 100%;
+    max-height: 100%;
     position: relative;
     z-index: 1;
 }
@@ -610,16 +598,21 @@ header, section, footer {
     bottom: 15px;
     border: 5px solid transparent;
     z-index: -1;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .accommodation-section .accommodation-item-inner h3 {
     color: #000000;
     font-weight: 500;
     font-size: 24px;
-    margin: 0 0 15px;
+    margin-top: 10px;
     text-transform: capitalize;
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 5px;
+
     display: inline-block;
 }
 
@@ -629,25 +622,24 @@ header, section, footer {
     font-size: 16px;
 }
 
-.accommodation-section .accommodation-item-inner span.time {
-    margin-bottom: 15px;
-}
-
 .accommodation-section .accommodation-item-inner p {
+    margin-top: 20px;
     font-size: 16px;
     line-height: 26px;
     color: #555555;
-    margin: 0;
+    flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .accommodation-section .accommodation-item-inner .btn-1 {
-    margin-top: 20px;
+    align-self: center; /* Horizontally center the button */
+    margin-top: auto; /* Push the button to the bottom */
 }
 
 /* People Section */
 
 .people-section {
-    padding: 8btn-10px 0 80px;
+    padding: 80px 10px 80px 10px;
 }
 
 .people-section .people-filter {
@@ -748,8 +740,14 @@ header, section, footer {
     position: relative;
 }
 
-.registry-section .registry-cards .img {
+.registry-section .registry-cards img {
     max-width: 100%;
+    transition:
+        transform 150ms ease-in-out,
+}
+
+.registry-section .registry-cards img:hover {
+    transform: scale(1.1);
 }
 
 /* FAQ Section */
@@ -877,6 +875,12 @@ header, section, footer {
 
 .rsvp-section .form .input-control:focus {
     outline: none;
+}
+
+#meal-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 /* Footer */
