@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.12-alpine AS base
+FROM --platform=linux/amd64 python:3.13-alpine AS base
 
 # Setup env
 ENV LANG=C.UTF-8
