@@ -3,7 +3,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "static_website_bucket" {
-  bucket = local.www_domain
+  bucket        = local.www_domain
   force_destroy = true
 }
 
@@ -12,6 +12,10 @@ resource "aws_s3_bucket_website_configuration" "static_website_bucket_config" {
 
   index_document {
     suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
   }
 }
 
@@ -51,21 +55,32 @@ data "aws_iam_policy_document" "public_read_policy_document" {
       type        = "*"
       identifiers = ["*"]
     }
-    actions   = ["s3:GetObject"]
+    actions = [
+      "s3:GetObject",
+      "s3:GetObjectVersion"
+    ]
     resources = ["arn:aws:s3:::${local.www_domain}/*"]
   }
 }
 
 resource "aws_s3_bucket_policy" "public_read_policy" {
-  bucket = aws_s3_bucket.static_website_bucket.id
-  policy = data.aws_iam_policy_document.public_read_policy_document.json
+  bucket     = aws_s3_bucket.static_website_bucket.id
+  policy     = data.aws_iam_policy_document.public_read_policy_document.json
   depends_on = [aws_s3_bucket_public_access_block.static_website_public_access]
 }
+
+resource "aws_s3_bucket_versioning" "static_website_versioning" {
+  bucket = aws_s3_bucket.static_website_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 
 # Redirect Bucket
 
 resource "aws_s3_bucket" "redirect_bucket" {
-  bucket = var.domain_name
+  bucket        = var.domain_name
   force_destroy = true
 }
 
@@ -74,7 +89,7 @@ resource "aws_s3_bucket_website_configuration" "redirect_bucket_config" {
 
   redirect_all_requests_to {
     host_name = local.www_domain
-    protocol = "https"
+    protocol  = "https"
   }
 }
 
@@ -102,6 +117,13 @@ resource "aws_s3_bucket_public_access_block" "redirect_bucket_public_access" {
   block_public_policy     = false
   ignore_public_acls      = false
   restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_versioning" "redirect_site_versioning" {
+  bucket = aws_s3_bucket.redirect_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
 
 # Upload Objects

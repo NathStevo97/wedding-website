@@ -12,3 +12,15 @@ variable "hosted_zone_id" {
   description = "The Hosted Zone Id of the domain"
   type        = string
 }
+
+variable "site_username" {
+  description = "Username for protecting the static website"
+  type        = string
+  sensitive   = true
+}
+
+variable "site_password" {
+  description = "Password for protecting the static website"
+  type        = string
+  sensitive   = true
+}
