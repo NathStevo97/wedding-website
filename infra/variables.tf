@@ -13,12 +13,6 @@ variable "hosted_zone_id" {
   type        = string
 }
 
-variable "site_username" {
-  description = "Username for protecting the static website"
-  type        = string
-  sensitive   = true
-}
-
 variable "site_password" {
   description = "Password for protecting the static website"
   type        = string

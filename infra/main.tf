@@ -29,7 +29,6 @@ module "cloudfront" {
   acm_certificate_id = module.certificate.certificate_id
   bucket_domain      = module.s3.bucket_domain_name
   caching_policy_id  = data.aws_cloudfront_cache_policy.CachingOptimized.id
-  site_username      = var.site_username
   site_password      = var.site_password
 }
 

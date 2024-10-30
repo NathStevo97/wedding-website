@@ -5,6 +5,29 @@ resource "aws_cloudfront_origin_access_control" "s3_oac" {
   signing_protocol                  = "sigv4"
 }
 
+resource "aws_cloudfront_response_headers_policy" "example_policy" {
+  name = "example-permissions-policy"
+
+  # Set custom security headers
+  security_headers_config {
+    content_security_policy {
+      override                = true
+      content_security_policy = "default-src 'self'"
+    }
+
+    # Add other security headers if needed
+  }
+
+  # Define custom headers for Permissions-Policy
+  custom_headers_config {
+    items {
+      header   = "Permissions-Policy"
+      override = true
+      value    = "geolocation=(self), microphone=()" # Only supported features
+    }
+  }
+}
+
 resource "aws_cloudfront_distribution" "s3_distribution" {
 
   origin {
@@ -47,6 +70,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
+
+    lambda_function_association {
+      event_type   = "viewer-request"
+      lambda_arn   = "${aws_lambda_function.auth_function.qualified_arn}"
+    }
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.example_policy.id
   }
 
   viewer_certificate {
