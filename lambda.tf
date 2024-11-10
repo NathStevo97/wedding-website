@@ -101,7 +101,8 @@ resource "aws_iam_role_policy" "lambda_edge_policy" {
 
 # Create the Lambda function from the ZIP
 resource "aws_lambda_function" "auth_function" {
-  filename         = "${path.module}/auth_function.zip"
+  s3_bucket        = aws_s3_bucket.lambda_bucket.id
+  s3_key           = "auth_function.zip"
   function_name    = "authEdgeLambda"
   role             = aws_iam_role.lambda_edge_role.arn
   handler          = "index.handler"
@@ -114,6 +115,6 @@ resource "aws_lambda_permission" "allow_cloudfront" {
   statement_id  = "AllowExecutionFromCloudFront"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.auth_function.function_name
-  principal     = "edgelambda.amazonaws.com"
+  principal     = "cloudfront.amazonaws.com" # might need to change to cloudfront.amazonaws.com instead of edgelambda.amazonaws.com?
   source_arn    = aws_cloudfront_distribution.s3_distribution.arn
 }

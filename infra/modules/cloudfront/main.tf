@@ -5,28 +5,6 @@ resource "aws_cloudfront_origin_access_control" "s3_oac" {
   signing_protocol                  = "sigv4"
 }
 
-resource "aws_cloudfront_response_headers_policy" "example_policy" {
-  name = "example-permissions-policy"
-
-  # Set custom security headers
-  security_headers_config {
-    content_security_policy {
-      override                = true
-      content_security_policy = "default-src 'self'"
-    }
-
-    # Add other security headers if needed
-  }
-
-  # Define custom headers for Permissions-Policy
-  custom_headers_config {
-    items {
-      header   = "Permissions-Policy"
-      override = true
-      value    = "geolocation=(self), microphone=()" # Only supported features
-    }
-  }
-}
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
 
@@ -42,17 +20,24 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   aliases             = [var.domain_name]
 
   custom_error_response {
-    error_caching_min_ttl = 10
+    error_caching_min_ttl = 0
     error_code            = 404
     response_code         = 404
-    response_page_path    = "/404.html"
+    response_page_path    = "/index.html"
   }
 
   custom_error_response {
-    error_caching_min_ttl = 10
+    error_caching_min_ttl = 0
     error_code            = 403
     response_code         = 404
-    response_page_path    = "/404.html"
+    response_page_path    = "/index.html"
+  }
+
+  custom_error_response {
+    error_caching_min_ttl = 0
+    error_code            = 503
+    response_code         = 503
+    response_page_path    = "/index.html"
   }
 
   restrictions {
@@ -69,13 +54,16 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cache_policy_id  = var.caching_policy_id
 
     viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 360
+    max_ttl                = 86400
     compress               = true
 
-    lambda_function_association {
+    /* lambda_function_association {
       event_type   = "viewer-request"
       lambda_arn   = "${aws_lambda_function.auth_function.qualified_arn}"
-    }
-    response_headers_policy_id = aws_cloudfront_response_headers_policy.example_policy.id
+    } */
+    #response_headers_policy_id = aws_cloudfront_response_headers_policy.example_policy.id
   }
 
   viewer_certificate {
