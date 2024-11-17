@@ -13,8 +13,20 @@ variable "hosted_zone_id" {
   type        = string
 }
 
+variable "site_username" {
+  description = "Password for protecting the static website"
+  type        = string
+  sensitive   = true
+}
+
 variable "site_password" {
   description = "Password for protecting the static website"
   type        = string
   sensitive   = true
+}
+
+variable "website_static_dir" {
+  type        = string
+  description = "Path to the root directory of website static content"
+  default     = "../site"
 }

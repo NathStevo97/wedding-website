@@ -16,6 +16,11 @@ resource "aws_acm_certificate" "cert" {
   lifecycle {
     create_before_destroy = true
   }
+
+  tags = {
+    "Project"   = "Wedding Website"
+    "ManagedBy" = "Terraform"
+  }
 }
 
 resource "aws_acm_certificate_validation" "cert_validation" {

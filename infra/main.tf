@@ -1,10 +1,19 @@
 locals {
   www_domain = "www.${var.domain_name}"
+  default_tags = {
+    "Project"   = "Wedding Website"
+    "ManagedBy" = "Terraform"
+  }
 }
 
 module "s3" {
-  source      = "./modules/S3"
-  domain_name = var.domain_name
+  source                  = "./modules/S3"
+  domain_name             = var.domain_name
+  cloudfront_arn          = module.cloudfront.distribution_arn
+  cloudfront_redirect_arn = module.cloudfront_redirect.distribution_arn
+  cloudfront_oai          = module.cloudfront.cloudfront_oai_arn
+  #redirect_cloudfront_oai = module.cloudfront_redirect.cloudfront_oai_arn
+  website_static_dir = var.website_static_dir
 }
 
 module "certificate" {
@@ -29,6 +38,7 @@ module "cloudfront" {
   acm_certificate_id = module.certificate.certificate_id
   bucket_domain      = module.s3.bucket_domain_name
   caching_policy_id  = data.aws_cloudfront_cache_policy.CachingOptimized.id
+  site_username      = var.site_username
   site_password      = var.site_password
 }
 
