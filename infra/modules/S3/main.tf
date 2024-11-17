@@ -22,14 +22,6 @@ resource "aws_s3_bucket" "static_website_bucket" {
   }
 }
 
-resource "aws_s3_bucket_website_configuration" "static_website_bucket_config" {
-  bucket = aws_s3_bucket.static_website_bucket.id
-
-  index_document {
-    suffix = "index.html"
-  }
-}
-
 resource "aws_s3_bucket_acl" "static_website_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.static_website_ownership]
 
@@ -103,15 +95,6 @@ resource "aws_s3_bucket" "redirect_bucket" {
   tags = {
     "Project"   = "Wedding Website"
     "ManagedBy" = "Terraform"
-  }
-}
-
-resource "aws_s3_bucket_website_configuration" "redirect_bucket_config" {
-  bucket = aws_s3_bucket.redirect_bucket.id
-
-  redirect_all_requests_to {
-    host_name = local.www_domain
-    protocol  = "https"
   }
 }
 
