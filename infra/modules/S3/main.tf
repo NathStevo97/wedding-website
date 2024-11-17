@@ -2,13 +2,13 @@ locals {
   www_domain = "www.${var.domain_name}"
   mime_types = {
     ".html" = "text/html",
-    ".css" = "text/css",
-    ".js" = "application/javascript",
-    ".png" = "image/png",
-    ".jpg" = "image/jpeg",
-    ".gif" = "image/gif",
-    ".svg" = "image/svg+xml",
-    ".ico" = "image/x-icon"
+    ".css"  = "text/css",
+    ".js"   = "application/javascript",
+    ".png"  = "image/png",
+    ".jpg"  = "image/jpeg",
+    ".gif"  = "image/gif",
+    ".svg"  = "image/svg+xml",
+    ".ico"  = "image/x-icon"
   }
 }
 

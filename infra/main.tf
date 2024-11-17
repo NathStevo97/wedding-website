@@ -12,8 +12,7 @@ module "s3" {
   cloudfront_arn          = module.cloudfront.distribution_arn
   cloudfront_redirect_arn = module.cloudfront_redirect.distribution_arn
   cloudfront_oai          = module.cloudfront.cloudfront_oai_arn
-  #redirect_cloudfront_oai = module.cloudfront_redirect.cloudfront_oai_arn
-  website_static_dir = var.website_static_dir
+  website_static_dir      = var.website_static_dir
 }
 
 module "certificate" {
