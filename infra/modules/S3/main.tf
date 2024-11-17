@@ -6,6 +6,7 @@ locals {
     ".js"   = "application/javascript",
     ".png"  = "image/png",
     ".jpg"  = "image/jpeg",
+    ".jpeg" = "image/jpeg",
     ".gif"  = "image/gif",
     ".svg"  = "image/svg+xml",
     ".ico"  = "image/x-icon"
@@ -139,28 +140,6 @@ resource "aws_s3_bucket_public_access_block" "redirect_bucket_public_access" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
-/* resource "aws_s3_bucket_policy" "redirect_public_read_policy" {
-  bucket = aws_s3_bucket.redirect_bucket.id
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Sid    = "AllowCloudFrontOAI"
-        Effect = "Allow"
-        Principal = {
-          AWS = var.redirect_cloudfront_oai
-        }
-        Action = "s3:GetObject"
-        Resource = [
-          "${aws_s3_bucket.redirect_bucket.arn}",
-          "${aws_s3_bucket.redirect_bucket.arn}/*"
-        ]
-      }
-    ]
-  })
-  depends_on = [aws_s3_bucket_public_access_block.redirect_bucket_public_access]
-} */
 
 resource "aws_s3_bucket_versioning" "redirect_site_versioning" {
   bucket = aws_s3_bucket.redirect_bucket.id
