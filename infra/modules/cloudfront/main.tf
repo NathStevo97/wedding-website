@@ -47,10 +47,23 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   default_cache_behavior {
-    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
-    cached_methods   = ["GET", "HEAD", "OPTIONS"]
+    allowed_methods  = ["GET", "HEAD"]
+    cached_methods   = ["GET", "HEAD"]
     target_origin_id = var.domain_name
-    cache_policy_id  = var.caching_policy_id
+    #cache_policy_id  = var.caching_policy_id
+
+    lambda_function_association {
+      event_type   = "viewer-request"
+      lambda_arn   = aws_lambda_function.basic_auth.qualified_arn
+    }
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+      headers = ["Authorization"]
+    }
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0

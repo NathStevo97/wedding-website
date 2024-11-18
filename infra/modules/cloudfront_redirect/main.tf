@@ -31,6 +31,14 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id = var.domain_name
     cache_policy_id  = var.caching_policy_id
 
+    /* forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+      headers = ["Authorization"]
+    } */
+
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
   }
