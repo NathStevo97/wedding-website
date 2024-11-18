@@ -1,3 +1,7 @@
+locals {
+    function_filename = "login_auth"
+}
+
 resource "aws_iam_role" "lambda_edge_role" {
   name = "lambda-edge-role"
 
@@ -28,11 +32,11 @@ resource "aws_iam_policy_attachment" "lambda_edge_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_lambda_function" "basic_auth" {
-  filename         = "${path.module}/auth_function.zip" # The zipped file containing the above JS code
-  function_name    = "basic-auth-lambda"
+resource "aws_lambda_function" "auth_lambda" {
+  filename         = "${path.module}/${local.function_filename}.zip" # The zipped file containing the above JS code
+  function_name    = "login-auth-lambda"
   role             = aws_iam_role.lambda_edge_role.arn
-  handler          = "auth_function.handler"
+  handler          = "${local.function_filename}.handler"
   runtime          = "nodejs18.x"
   publish          = true
 

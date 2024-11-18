@@ -54,13 +54,13 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     lambda_function_association {
       event_type   = "viewer-request"
-      lambda_arn   = aws_lambda_function.basic_auth.qualified_arn
+      lambda_arn   = aws_lambda_function.auth_lambda.qualified_arn
     }
 
     forwarded_values {
-      query_string = false
+      query_string = true
       cookies {
-        forward = "none"
+        forward = "all"
       }
       headers = ["Authorization"]
     }
