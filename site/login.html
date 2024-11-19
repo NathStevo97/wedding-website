@@ -12,19 +12,49 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
+            overflow: hidden;
         }
+        /* Background Image and Overlay */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/lemmington-hall-1.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        .background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Apply the muted overlay */
+            z-index: 2;
+        }
+        /* Form Styling */
         form {
-            background-color: #f4f4f4;
+            position: relative;
+            z-index: 3; /* Bring the form above the background */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         input[type="password"] {
-            width: 100%;
+            width: 100%; /* Initially use full width of the form */
+            max-width: 300px; /* Limit the maximum width */
             padding: 10px;
-            margin: 10px 0;
+            margin: 10px auto; /* Center within the form */
             border: 1px solid #ccc;
             border-radius: 3px;
+            box-sizing: border-box; /* Ensure padding doesn't overflow */
         }
         input[type="submit"] {
             padding: 10px 20px;
@@ -40,6 +70,10 @@
     </style>
 </head>
 <body>
+    <!-- Background Container -->
+    <div class="background"></div>
+
+    <!-- Login Form -->
     <form action="/login.html" method="GET">
         <h2>Enter Password</h2>
         <input type="password" id="password" name="password" placeholder="Password" required />
