@@ -4,70 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-        }
-        /* Background Image and Overlay */
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('img/lemmington-hall-1.jpeg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-        .background::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Apply the muted overlay */
-            z-index: 2;
-        }
-        /* Form Styling */
-        form {
-            position: relative;
-            z-index: 3; /* Bring the form above the background */
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        input[type="password"] {
-            width: 100%; /* Initially use full width of the form */
-            max-width: 300px; /* Limit the maximum width */
-            padding: 10px;
-            margin: 10px auto; /* Center within the form */
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box; /* Ensure padding doesn't overflow */
-        }
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #28a745;
-            border: none;
-            color: white;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
-    </style>
+    <!-- Fontawesome CSS-->
+    <script src="https://kit.fontawesome.com/b7eda554a4.js" crossorigin="anonymous"></script>
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="css/login-style.css">
 </head>
 <body>
     <!-- Background Container -->

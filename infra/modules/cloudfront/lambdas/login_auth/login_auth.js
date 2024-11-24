@@ -1,7 +1,13 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+
+// Load the configuration file at the start of the Lambda function
+const config = require('./config.json');
+
 // Replace with your desired password
-const PASSWORD = "securepassword";
+const PASSWORD = config.site_password;
 const LOGIN_PAGE = "/login.html";
 const INDEX_PAGE = "/index.html";
 const AUTH_COOKIE_NAME = "auth_token";
@@ -17,15 +23,39 @@ function generateResponse(status, statusDescription, headers, body) {
     };
 }
 
+// Helper function to determine MIME type
+function getMimeType(extension) {
+    const mimeTypes = {
+        '.html': 'text/html',
+        '.css': 'text/css',
+        '.js': 'application/javascript',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+    };
+    return mimeTypes[extension] || 'application/octet-stream';
+}
+
 // Main Lambda@Edge handler
 exports.handler = async (event, context, callback) => {
     const request = event.Records[0].cf.request;
     const headers = request.headers;
+    const uri = request.uri;
+    const extension = path.extname(uri);
+    const staticAssetExtensions = ['.css', '.js', '.png', '.jpg', '.jpeg', '.gif'];
 
     const cookies = headers.cookie ? headers.cookie[0].value : "";
     const isAuthenticated = cookies.includes(`${AUTH_COOKIE_NAME}=${AUTH_COOKIE_VALUE}`);
 
-    if (request.uri === LOGIN_PAGE) {
+    // Serve static assets directly
+    if (staticAssetExtensions.includes(extension)) {
+        // Allow static files to pass through without authentication
+        return callback(null, request);
+    }
+
+    // Handle login page
+    if (uri === LOGIN_PAGE) {
         // If the user is submitting the login form, check the password
         if (request.querystring.includes("password=")) {
             const submittedPassword = decodeURIComponent(request.querystring.split("password=")[1]);
@@ -38,14 +68,14 @@ exports.handler = async (event, context, callback) => {
                         location: [{ key: "Location", value: INDEX_PAGE }],
                         "set-cookie": [{
                             key: "Set-Cookie",
-                            value: `${AUTH_COOKIE_NAME}=${AUTH_COOKIE_VALUE}; Path=/; HttpOnly`
+                            value: `${AUTH_COOKIE_NAME}=${AUTH_COOKIE_VALUE}; Path=/; HttpOnly`,
                         }],
                     },
                     ""
                 );
                 return callback(null, response);
             } else {
-                // Incorrect password, stay on the login page
+                // Incorrect password, reload the login page with an alert
                 const response = generateResponse(
                     200,
                     "OK",
@@ -66,8 +96,8 @@ exports.handler = async (event, context, callback) => {
         return callback(null, request);
     }
 
+    // Redirect unauthenticated users to the login page
     if (!isAuthenticated) {
-        // Redirect unauthenticated users to the login page
         const response = generateResponse(
             302,
             "Found",

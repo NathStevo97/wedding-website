@@ -85,6 +85,10 @@ resource "aws_s3_object" "site_files" {
   source       = "${var.website_static_dir}/${each.key}"
   source_hash  = filemd5("${var.website_static_dir}/${each.key}")
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.key), null)
+  tags = {
+    "Project"   = "Wedding Website"
+    "ManagedBy" = "Terraform"
+  }
 }
 
 # Redirect Bucket
@@ -139,6 +143,10 @@ resource "aws_s3_object" "redirect_site_files" {
   source       = "${var.website_static_dir}/${each.key}"
   source_hash  = filemd5("${var.website_static_dir}/${each.key}")
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.key), null)
+  tags = {
+    "Project"   = "Wedding Website"
+    "ManagedBy" = "Terraform"
+  }
 }
 
 /* resource "aws_s3_bucket_cors_configuration" "redirect_bucket" {
