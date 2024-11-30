@@ -1,0 +1,12 @@
+@media(max-width: 923px){
+    form h1 {
+        font-size: 60px;
+    }
+}
+
+@media(max-width: 574px){
+    form h1 {
+        font-size: 40px;
+    }
+}
+
