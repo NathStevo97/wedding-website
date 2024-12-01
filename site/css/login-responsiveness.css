@@ -1,10 +1,18 @@
 @media(max-width: 923px){
+    form {
+        max-width: 80%;
+    }
+
     form h1 {
         font-size: 60px;
     }
 }
 
 @media(max-width: 574px){
+    form {
+        max-width: 80%;
+    }
+
     form h1 {
         font-size: 40px;
     }
