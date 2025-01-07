@@ -669,8 +669,8 @@ header, section, footer {
 }
 
 .people-section .people-item {
-    flex: 0 0 20%;
-    max-width: 25%;
+    flex: 0 0 30%;
+    max-width: 30%;
     padding: 15px;
     display: none;
 }
@@ -723,10 +723,12 @@ header, section, footer {
     margin: auto;
 }
 
-.registry-section .registry-description .p {
+.registry-section .registry-description p {
     padding: 0 60px;
     text-align: center;
     vertical-align: middle;
+    font-size: 20px;
+    font-family: playfair, cursive;
 }
 
 .registry-section .registry-cards {
@@ -743,18 +745,28 @@ header, section, footer {
 
 .registry-section .registry-cards img {
     max-width: 100%;
+    padding: 10px;
     transition:
         transform 150ms ease-in-out,
 }
 
 .registry-section .registry-cards img:hover {
     transform: scale(1.1);
+    background-color: #fff8f0;
 }
 
 /* FAQ Section */
 
 .faq-section {
     padding: 80px 0 40px;
+}
+
+.faq-section .section-title p {
+    padding-top: 25px;
+    font-size: 28px;
+    line-height: 26px;
+    color: #555555;
+    font-family: playfair, cursive;
 }
 
 .faq-section .faq-item {
@@ -827,8 +839,9 @@ header, section, footer {
 }
 
 .rsvp-section .section-title p {
+    font-family: Playfair, cursive;
     margin: 10px 0 0;
-    font-size: 16px;
+    font-size: 32px;
     line-height: 26px;
 }
 
@@ -882,6 +895,15 @@ header, section, footer {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.rsvp-section .form .input-group-btn {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 /* Footer */

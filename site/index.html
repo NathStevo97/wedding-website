@@ -73,7 +73,7 @@
         </div>
         <div class="row">
             <div class="couple">
-                <img src="img/nathan.png" alt="happy couple">
+                <img src="img/nathan_2.jpg" alt="a picture of nathan stephenson">
                 <h3>Nathan Stephenson</h3>
                 <p>
                     Nathan grew up in Gateshead with mum Shirley, dad John, and brother Adam.
@@ -89,7 +89,7 @@
             </div>
             <div class="couple">
                 <i class="fas fa-heart"></i>
-                <img src="img/chloe.png" alt="happy couple">
+                <img src="img/chloe.png" alt="a picture of chloe timlin">
                 <h3>Chloe Timlin</h3>
                 <p>
                     Chloe proudly claims the title of the "funny one" in her relationship with Nathan,
@@ -126,14 +126,14 @@
         <div class="row justify-content-center">
             <div class="people-item" data-category="groom">
                 <div class="people-item-inner">
-                    <img src="img/vic.png">
+                    <img src="img/vic_2.png">
                     <h4> Victoria Atkinson</h4>
                     <p> Best Person </p>
                 </div>
             </div>
             <div class="people-item" data-category="groom">
                 <div class="people-item-inner">
-                    <img src="img/cook.jpg">
+                    <img src="img/cook_2.jpg">
                     <h4> Josh Cook</h4>
                     <p> Groomsman </p>
                 </div>
@@ -145,7 +145,7 @@
             <div class="people-item" data-category="bride">
                 <div class="people-item-inner">
                     <img src="img/amy.jpg">
-                    <h4> Amy Thornton</h4>
+                    <h4> Amy Elliot</h4>
                     <p> Maid of Honour</p>
                 </div>
             </div>
@@ -159,7 +159,7 @@
             <div class="people-item" data-category="bride">
                 <div class="people-item-inner">
                     <img src="img/kirstie.jpg">
-                    <h4> Kirstie, Freya, & Eva </h4>
+                    <h4> Kirstie, Freya, & Eva Wood </h4>
                     <p> Chloe's Sister & Nieces </p>
                 </div>
             </div>
@@ -274,7 +274,9 @@
             <div class="row">
                 <div class="registry-description">
                     <p>
-                        Your presence on our day is all we ask for, however if you would like to gift us in some other way, we kindly ask for a donation to either the National Autistic Society or Cancer research, two charities close to our hearts. Click the desired logo to take you to the charity's site.
+                        Your presence on our day is all we ask for, however if you would like to gift us in some other way, we kindly ask for a donation to either the National Autistic Society or Cancer research, two charities close to our hearts.
+                        <br><br>
+                        Click the desired logo to take you to the charity's site.
                         <br><br>
                         For any other gifts, a wishing well will be present at the venue reception.
                     </p>
@@ -308,6 +310,7 @@
             <div class="row">
                 <div class="section-title">
                     <h2>FAQs</h2>
+                    <p>We hope these answer some common questions ahead of the big day. Please get in touch if there are any other queries.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -348,7 +351,7 @@
         <div class="row">
             <div class="section-title">
                 <h2>We can't wait to celebrate with you!</h2>
-                <p>Please kindly respond before 3rd December 2024</p>
+                <p>Please kindly respond before 31st March 2025.</p>
             </div>
         </div>
         <div class="row">
@@ -374,7 +377,9 @@
                         <div class="input-group">
                             <label for="RSVP Status">Attending/Not Attending?*</label>
                             <select class="input-control" name="RSVP Status" id="rsvp-status" required>
-                                <option value="I am attending">I am Attending</option>
+                                <option value="" selected disabled hidden>Please select your attendance status</option>
+                                <option value="I am Attending - Day and Evening">I am Attending - Day and Evening</option>
+                                <option value="I am Attending - Evening Only">I am Attending - Evening Only</option>
                                 <option value="I am not attending">I am not Attending</option>
                             </select>
                         </div>
@@ -383,7 +388,7 @@
                         <div class="row">
                             <div class="input-group">
                                 <label for="Starter">Starter Choice</label>
-                                <select class="input-control" name="Starter" id="starter-choice">
+                                <select class="input-control" name="Starter" id="starter-choice" required>
                                     <option value="" selected disabled hidden>Please select your starter choice</option>
                                     <option value="Starter Choice 1">Pork Cheeks with a Marmalade Red Onion Jam and Baby Spinach Salad</option>
                                     <option value="Starter Choice 2">Pickled Beetroot with Salmon and Teriyaki sauce</option>
@@ -394,7 +399,7 @@
                         <div class="row">
                             <div class="input-group">
                                 <label for="Main">Main Choice</label>
-                                <select class="input-control" name="Main" id="main-choice">
+                                <select class="input-control" name="Main" id="main-choice" required>
                                     <option value="" selected disabled hidden>Please select your main choice</option>
                                     <option value="Main Choice 1">Beef Wellington with Chateau Potatoes, Roast Vegetables and a Shiraz Sauce</option>
                                     <option value="Main Choice 2">Pan Fried Corn Fed Chicken Breast, Sweet Potato Mash, Tender Stem Broccoli, served with Smoked Bacon and Rosemary Infusion</option>
@@ -405,7 +410,7 @@
                         <div class="row">
                             <div class="input-group">
                                 <label for="Dessert">Dessert Choice</label>
-                                <select class="input-control" name="Dessert" id="dessert-choice">
+                                <select class="input-control" name="Dessert" id="dessert-choice" required>
                                     <option value="" selected disabled hidden>Please select your dessert choice</option>
                                     <option value="Dessert Choice 1">Lemon Tart with Lemon Meringue Mess Ice Cream</option>
                                     <option value="Dessert Choice 2">Vanilla Panna Cotta with Black Pepper Balsamic Strawberries</option>
@@ -417,11 +422,11 @@
                     <div class="row">
                         <div class="input-group">
                             <label for="Message">Message</label>
-                            <textarea placeholder="Message" class="input-control" name="Message"></textarea>
+                            <textarea placeholder="Got a message for the bride and groom? A DJ request for the evening? Write it down in here!" class="input-control" name="Message"></textarea>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-group">
+                        <div class="input-group-btn">
                             <button class="btn-1" type="submit" id="submit">Submit</button>
                         </div>
                     </div>
@@ -433,7 +438,7 @@
 <!-- RSVP Section End -->
 
 <!-- Copyright -->
-<p class="copyright-text">copyright  &copy; 2024 Nathan Stephenson & Chloe Timlin. natstephenson15@gmail.com</p>
+<p class="copyright-text">copyright  &copy; 2025 Nathan Stephenson & Chloe Timlin. <a href="mailto:natstephenson15@gmail.com">natstephenson15@gmail.com</a></p>
 <!-- JQuery -->
 <script src="scripts/jquery.min.js"></script>
 <!-- Scrollit -->
@@ -476,7 +481,7 @@
 
     // Function to toggle visibility and required attributes
     function toggleMealOptions() {
-        if (rsvpStatus.value === 'I am attending') {
+        if (rsvpStatus.value === 'I am Attending - Day and Evening') {
             mealOptions.style.display = 'flex';  // Show the meal options
             starterChoice.setAttribute('required', 'required');
             mainChoice.setAttribute('required', 'required');

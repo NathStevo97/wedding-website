@@ -20,6 +20,10 @@ resource "aws_s3_bucket" "static_website_bucket" {
     "Project"   = "Wedding Website"
     "ManagedBy" = "Terraform"
   }
+
+  provisioner "local-exec" {
+    command = "aws s3 sync ../site s3://${local.www_domain}"
+  }
 }
 
 resource "aws_s3_bucket_acl" "static_website_acl" {
@@ -77,7 +81,7 @@ resource "aws_s3_bucket_versioning" "static_website_versioning" {
   }
 }
 
-resource "aws_s3_object" "site_files" {
+/* resource "aws_s3_object" "site_files" {
   for_each = fileset(var.website_static_dir, "**")
 
   bucket       = aws_s3_bucket.static_website_bucket.id
@@ -89,7 +93,7 @@ resource "aws_s3_object" "site_files" {
     "Project"   = "Wedding Website"
     "ManagedBy" = "Terraform"
   }
-}
+} */
 
 # Redirect Bucket
 
@@ -99,6 +103,10 @@ resource "aws_s3_bucket" "redirect_bucket" {
   tags = {
     "Project"   = "Wedding Website"
     "ManagedBy" = "Terraform"
+  }
+
+  provisioner "local-exec" {
+    command = "aws s3 sync ../site s3://${var.domain_name}"
   }
 }
 
@@ -135,7 +143,7 @@ resource "aws_s3_bucket_versioning" "redirect_site_versioning" {
   }
 }
 
-resource "aws_s3_object" "redirect_site_files" {
+/* resource "aws_s3_object" "redirect_site_files" {
   for_each = fileset(var.website_static_dir, "**")
 
   bucket       = aws_s3_bucket.redirect_bucket.id
@@ -147,7 +155,7 @@ resource "aws_s3_object" "redirect_site_files" {
     "Project"   = "Wedding Website"
     "ManagedBy" = "Terraform"
   }
-}
+} */
 
 /* resource "aws_s3_bucket_cors_configuration" "redirect_bucket" {
   bucket = aws_s3_bucket.redirect_bucket.id

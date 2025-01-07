@@ -96,11 +96,17 @@ input[type="password"], input[type="submit"] {
     max-width: 400px;
 }
 input[type="submit"] {
-    background-color: #28a745;
-    color: white;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    color: #ffffff;
+    padding: 7px 30px;
+    font-size: 20px;
+    font-weight: normal;
+    font-family: "Playfair", cursive;
+    transition: 0.5s ease;
     cursor: pointer;
-    border: none;
 }
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #97b97b;
 }
