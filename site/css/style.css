@@ -78,7 +78,7 @@ header, section, footer {
     font-family: "Playfair", cursive;
     letter-spacing: 2px;
     margin: 0;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .btn-1 {
