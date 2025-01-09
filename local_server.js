@@ -5,53 +5,18 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 const querystring = require('querystring');
-const config = require('./config.json'); // Load password from config file
+const config = require('./config.json');
 
 const PORT = 3000;
-const PASSWORD = config.auth_password; // Password from config.json
+const PASSWORD = config.auth_password;
+const LOGIN_PAGE = '/login.html';
+const INDEX_PAGE = '/index.html';
+const AUTH_COOKIE_NAME = 'auth';
+const AUTH_COOKIE_VALUE = 'valid';
+const BASE_DIR = path.join(__dirname, 'site');
 
-// Set BASE_DIR to the directory where login.html, index.html, and other assets are located
-const BASE_DIR = path.join(__dirname, 'site'); // Adjust 'public' to the directory name if different
-
-// Load login and index files once on server start
-let loginPage = fs.readFileSync(path.join(BASE_DIR, 'login.html'), 'utf8');
-const indexPage = fs.readFileSync(path.join(BASE_DIR, 'index.html'), 'utf8');
-
-// Inject JavaScript into login page for handling onsubmit event
-loginPage = loginPage.replace('</body>', `
-<script>
-    function login(event) {
-        event.preventDefault();
-        const password = document.getElementById('password').value;
-
-        fetch('/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'password=' + encodeURIComponent(password)
-        })
-        .then(response => {
-            if (response.redirected) {
-                window.location.href = response.url;
-            } else {
-                alert('Incorrect password. Please try again.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
-        });
-    }
-</script>
-</body>
-`);
-
-const server = http.createServer((req, res) => {
-    const parsedUrl = url.parse(req.url);
-    const pathname = path.join(BASE_DIR, parsedUrl.pathname);
-    const ext = path.extname(pathname);
-    const cookies = parseCookies(req);
-
-    // Define MIME types for common static assets
+// Helper function to determine MIME type
+function getMimeType(extension) {
     const mimeTypes = {
         '.html': 'text/html',
         '.css': 'text/css',
@@ -62,66 +27,8 @@ const server = http.createServer((req, res) => {
         '.svg': 'image/svg+xml',
         '.ico': 'image/x-icon'
     };
-
-    // Check if user is authenticated by verifying the 'auth' cookie
-    const isAuthenticated = cookies.auth === 'valid';
-
-    // Handle login POST request
-    if (parsedUrl.pathname === '/login' && req.method === 'POST') {
-        let body = '';
-
-        // Collect the POST data
-        req.on('data', chunk => {
-            body += chunk.toString();
-        });
-
-        req.on('end', () => {
-            const parsedBody = querystring.parse(body);
-            const submittedPassword = parsedBody.password;
-
-            if (submittedPassword === PASSWORD) {
-                // Set 'auth=valid' cookie and redirect to home page if password is correct
-                res.writeHead(302, {
-                    'Set-Cookie': 'auth=valid; Path=/; HttpOnly',
-                    'Location': '/'
-                });
-                res.end();
-            } else {
-                // Respond with a 401 status for incorrect password
-                res.writeHead(401, { 'Content-Type': 'text/plain' });
-                res.end('Unauthorized');
-            }
-        });
-    } else if (parsedUrl.pathname === '/login') {
-        // Serve login page for GET request
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end(loginPage);
-    } else {
-        // Redirect to login page if user is not authenticated
-        if (!isAuthenticated) {
-            res.writeHead(302, { 'Location': '/login' });
-            res.end();
-            return;
-        }
-
-        // Serve static files (e.g., CSS, JavaScript, images)
-        if (fs.existsSync(pathname) && fs.statSync(pathname).isFile()) {
-            const mimeType = mimeTypes[ext] || 'application/octet-stream';
-            res.writeHead(200, { 'Content-Type': mimeType });
-            fs.createReadStream(pathname).pipe(res);
-        } else {
-            // Serve the protected content (index.html) if no specific file is requested
-            if (parsedUrl.pathname === '/') {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(indexPage);
-            } else {
-                // Respond with a 404 if the file is not found
-                res.writeHead(404, { 'Content-Type': 'text/plain' });
-                res.end('404 Not Found');
-            }
-        }
-    }
-});
+    return mimeTypes[extension] || 'application/octet-stream';
+}
 
 // Helper function to parse cookies from request headers
 function parseCookies(request) {
@@ -138,7 +45,107 @@ function parseCookies(request) {
     return list;
 }
 
-// Start the server
+// Helper function to inject JavaScript into login page
+function injectLoginScript(html) {
+    return html.replace('</body>', `
+    <script>
+        document.querySelector('form').onsubmit = function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            window.location.href = '/login?password=' + encodeURIComponent(password);
+        };
+    </script>
+    </body>
+    `);
+}
+
+const server = http.createServer((req, res) => {
+    const parsedUrl = url.parse(req.url, true);
+    const pathname = parsedUrl.pathname;
+    const cookies = parseCookies(req);
+    const isAuthenticated = cookies[AUTH_COOKIE_NAME] === AUTH_COOKIE_VALUE;
+
+    // Handle static assets
+    const fullPath = path.join(BASE_DIR, pathname);
+    const ext = path.extname(fullPath);
+    if (fs.existsSync(fullPath) && fs.statSync(fullPath).isFile() && pathname !== '/login.html' && pathname !== '/index.html') {
+        const mimeType = getMimeType(ext);
+        res.writeHead(200, { 'Content-Type': mimeType });
+        fs.createReadStream(fullPath).pipe(res);
+        return;
+    }
+
+    // Handle login page
+    if (pathname === LOGIN_PAGE || pathname === '/login') {
+        // Check for password in query string
+        if (parsedUrl.query.password) {
+            const submittedPassword = parsedUrl.query.password;
+
+            if (submittedPassword === PASSWORD) {
+                // Set auth cookie and redirect to index
+                res.writeHead(302, {
+                    'Set-Cookie': `${AUTH_COOKIE_NAME}=${AUTH_COOKIE_VALUE}; Path=/; HttpOnly`,
+                    'Location': INDEX_PAGE
+                });
+                res.end();
+                return;
+            } else {
+                // Show error and redirect back to login
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(`
+                    <!DOCTYPE html>
+                    <html>
+                    <body>
+                        <script>
+                            alert('Incorrect password. Please try again.');
+                            window.location.href='${LOGIN_PAGE}';
+                        </script>
+                    </body>
+                    </html>
+                `);
+                return;
+            }
+        }
+
+        // Serve login page with injected script
+        const loginPath = path.join(BASE_DIR, 'login.html');
+        if (fs.existsSync(loginPath)) {
+            let loginContent = fs.readFileSync(loginPath, 'utf8');
+            loginContent = injectLoginScript(loginContent);
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(loginContent);
+        } else {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Login page not found');
+        }
+        return;
+    }
+
+    // Redirect unauthenticated users to login
+    if (!isAuthenticated && pathname !== LOGIN_PAGE) {
+        res.writeHead(302, { 'Location': LOGIN_PAGE });
+        res.end();
+        return;
+    }
+
+    // Serve index page for authenticated users
+    if (pathname === '/' || pathname === INDEX_PAGE) {
+        const indexPath = path.join(BASE_DIR, 'index.html');
+        if (fs.existsSync(indexPath)) {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            fs.createReadStream(indexPath).pipe(res);
+        } else {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Index page not found');
+        }
+        return;
+    }
+
+    // 404 for anything else
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('404 Not Found');
+});
+
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
