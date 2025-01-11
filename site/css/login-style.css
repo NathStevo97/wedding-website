@@ -86,7 +86,32 @@ form p {
     align-items: center;
     width: 100%;
 }
-input[type="password"], input[type="submit"] {
+
+.password-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.password-container input[type="password"] {
+    width: 100%;
+    padding-right: 40px; /* Add padding to make space for the icon */
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000000;
+}
+
+.password-container i:hover {
+    color: #97b97b;
+}
+
+input[type="password"], input[type="text"], input[type="submit"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;

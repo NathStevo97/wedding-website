@@ -29,9 +29,28 @@
             Please enter the password on your invitation to access everything you need to know about our special day
          </p>
           <div class="form-group">
-            <input type="password" id="password" name="password" placeholder="Password" required />
+            <div class="password-container">
+                <i class="fa-regular fa-eye" id="togglePassword"></i>
+                <input class="pass" type="password" id="password" name="password" placeholder="Password" required />
+            </div>
             <input type="submit" value="Login" />
         </div>
     </form>
 </body>
+<script>
+    const btn = document.querySelector('.fa-eye')
+    const passEl = document.querySelector('.pass')
+
+    btn.addEventListener('click', () => {
+        if(passEl.type === 'password') {
+            passEl.type = 'text'
+            btn.classList.remove('fa-eye')
+            btn.classList.add('fa-eye-slash')
+        } else {
+            passEl.type = 'password'
+            btn.classList.remove('fa-eye-slash')
+            btn.classList.add('fa-eye')
+        }
+    })
+</script>
 </html>
