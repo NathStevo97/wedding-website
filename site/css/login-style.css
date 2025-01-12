@@ -112,7 +112,7 @@ form p {
 }
 
 .password-container i:hover {
-    color: #97b97b;
+    color: #b46d7e;
 }
 
 input[type="password"], input[type="text"], input[type="submit"] {
@@ -137,5 +137,5 @@ input[type="submit"] {
     cursor: pointer;
 }
 input[type="submit"]:hover {
-    background-color: #97b97b;
+    background-color: #b46d7e;
 }
