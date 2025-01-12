@@ -22,7 +22,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: Predict cost
-        uses: salim8898/AWS-Cost-Predictor@v1.0.0
+        uses: salim8898/AWS-Cost-Predictor@v1.0.3
         with:
           iac_path: infra    # path of IAC folder in your repo
         env:
