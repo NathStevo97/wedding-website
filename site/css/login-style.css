@@ -108,7 +108,7 @@ form p {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #000000;
+    color: #ffffff;
 }
 
 .password-container i:hover {
@@ -120,14 +120,24 @@ input[type="password"], input[type="text"], input[type="submit"] {
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
     box-sizing: border-box;
     max-width: 400px;
 }
+
+input[type="password"] {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+::placeholder {
+    color: #ffffffc0;
+}
+
 input[type="submit"] {
     background-color: transparent;
     border: 1px solid #ffffff;
-    border-radius: 30px;
+    border-radius: 5px;
     color: #ffffff;
     padding: 7px 30px;
     font-size: 20px;
