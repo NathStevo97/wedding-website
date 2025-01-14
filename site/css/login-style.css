@@ -132,6 +132,7 @@ input[type="password"] {
 
 ::placeholder {
     color: #ffffffc0;
+    font-family: "Playfair", cursive;
 }
 
 input[type="submit"] {
