@@ -9,6 +9,7 @@
     .gallery-section .gallery-item,
     .people-section .people-item,
     .event-section .event-item,
+    .event-section .menu-item,
     .accommodation-section .accommodation-item,
     .faq-section .faq-item {
         flex: 0 0 50%;
@@ -83,11 +84,16 @@
         transform: translateY(0px);
     }
 
+    .event-section .menu-item:nth-child(2) {
+        transform: translateY(0px);
+    }
+
     .accommodation-section .accommodation-item:nth-child(2) {
         transform: translateY(0px);
     }
 
     .event-section .event-item,
+    .event-section .menu-item,
     .accommodation-section .accommodation-item,
     .faq-section .faq-item,
     .story-section .story-text, .story-section .story-img {

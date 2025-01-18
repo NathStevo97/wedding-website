@@ -12,6 +12,7 @@
 
 .btn-1,
 .event-section .event-item-inner::before,
+.event-section .menu-item-inner::before,
 .accommodation-section .accommodation-item-inner::before,
 .faq-section .faq-item-inner::before,
 .couple-section .couple img {
