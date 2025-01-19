@@ -571,17 +571,16 @@ header, section, footer {
     flex-wrap: wrap;
 }
 
-/* .event-section .menu-item:nth-child(2) {
-    transform: translateY(50px);
-} */
 
 .event-section .menu-item-inner {
     background-color: #ffffff;
-    padding: 60px 45px 100px;
+    padding: 60px 45px 45px; /* Reduce bottom padding */
     text-align: center;
     box-shadow: 0 0 10px #888888;
-    flex: 0 0 100%;
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
     position: relative;
     z-index: 1;
 }
@@ -601,28 +600,47 @@ header, section, footer {
     color: #000000;
     font-weight: 500;
     font-size: 24px;
-    margin: 0 0 15px;
+    margin: 0 0 1px;
     text-transform: capitalize;
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 5px;
+    padding-bottom: 1px;
     display: inline-block;
+    font-family: baskervville, cursive;
+
 }
 
-.event-section .menu-item-inner span {
+.event-section .menu-item-inner .choice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0; /* Adjust padding for spacing */
+    position: relative;
+    height: 130px; /* Set a consistent height for each choice-container */
+}
+
+.event-section .menu-item-inner .choice-container:not(:last-child)::after {
+    content: '';
     display: block;
-    font-weight: 500;
-    font-size: 16px;
+    border-bottom: 1px solid #cccccc; /* Apply the same border-bottom as h3 */
+    width: 80%; /* Match the width of the h3 element */
+    position: absolute;
+    bottom: 0;
+    left: 10%;
 }
 
-.event-section .menu-item-inner span.time {
-    margin-bottom: 15px;
+.event-section .menu-item-inner .choice-container span {
+    font-weight: bold; /* Make span elements bold */
+    font-size: 16px;
+    font-family: baskervville, cursive;
 }
 
-.event-section .menu-item-inner p {
+.event-section .menu-item-inner .choice-container p {
+    font-weight: normal; /* Make p elements not bold */
     font-size: 16px;
-    line-height: 26px;
-    color: #555555;
-    margin: 0;
+    margin: 5px 0 0; /* Adjust margin for spacing */
+    font-family: playfair, cursive;
 }
 
 /* Accommodation Section */
