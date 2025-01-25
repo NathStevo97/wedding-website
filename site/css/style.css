@@ -76,10 +76,15 @@ header, section, footer {
     color: #000000;
     font-weight: 700;
     /* font-family: "Great Vibes", cursive; */
-    font-family: "Playfair", cursive;
+    font-family: "Baskervville", cursive;
     letter-spacing: 2px;
     margin: 0;
     /* text-transform: capitalize; */
+}
+
+.section-title p {
+    font-family: "Playfair", cursive;
+    font-size: 26px;
 }
 
 .btn-1 {
@@ -277,7 +282,6 @@ header, section, footer {
     color: #ffffff;
     margin: 0;
     font-weight: normal;
-    /* font-family: 'Great Vibes', cursive; */
     font-family: "Baskervville", cursive;
 }
 
@@ -358,7 +362,7 @@ header, section, footer {
     font-size: 40px;
     margin: 15px 0;
     /* font-family: 'Great Vibes', cursive; */
-    font-family: "Playfair", cursive;
+    font-family: "Baskervville", cursive;
     font-weight: normal;
     letter-spacing: 2px;
 }
@@ -367,107 +371,7 @@ header, section, footer {
     font-size: 16px;
     line-height: 26px;
     color: #555555;
-}
-
-/* Story Section */
-
-.story-section {
-    padding: 80px 0 80px;
-}
-
-.story-section .story-content {
-    flex: 0 0 100%;
-    max-width: 100%;
-    position: relative;
-}
-
-.story-section .story-content:before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 1px;
-    height: 100%;
-    top: 0;
-    background-color: #cccccc;
-}
-
-.story-section .story-item i {
-    position: absolute;
-    left: 50%;
-    margin-left: -15px;
-    top: 5px;
-    width: 31px;
-    text-align: center;
-    padding: 5px;
-    font-size: 18px;
-}
-
-.story-section .story-item {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.story-section .story-item:last-child{
-    margin-bottom: 0;
-}
-
-.story-section .story-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.story-section .story-item:nth-child(odd) .story-text{
-    padding: 0 60px 0 15px;
-    text-align: right;
-}
-
-.story-section .story-item:nth-child(odd) .story-img{
-    padding: 0 15px 0 60px;
-}
-
-.story-section .story-item:nth-child(even) .story-text{
-    padding: 0 15px 0 60px;
-}
-
-.story-section .story-item:nth-child(even) .story-img{
-    padding: 0 60px 0 15px;
-}
-
-.story-section .story-text,
-.story-section .story-img {
-    flex: 0 0 50%;
-    max-width: 50%;
-}
-
-.story-section .story-img img {
-    width: 100%;
-}
-
-.story-section .story-text h3 {
-    font-size: 24px;
-    margin: 0 0 8px;
-    color: #000000;
-    font-weight: 500;
-    text-transform: capitalize;
-}
-
-.story-section .story-text span.date {
-    font-size: 15px;
-    font-weight: 700;
-    color: #555555;
-    margin: 0 0 15px;
-    display: block;
-    text-transform: capitalize;
-}
-
-.story-section .story-text p {
-    font-size: 16px;
-    line-height: 26px;
-    margin: 0;
-    color: #555555;
+    font-family: Playfair, cursive;
 }
 
 /* Event Section */
@@ -509,10 +413,6 @@ header, section, footer {
     flex-wrap: wrap;
 }
 
-/* .event-section .event-item:nth-child(2) {
-    transform: translateY(50px);
-} */
-
 .event-section .event-item-inner {
     background-color: #ffffff;
     padding: 60px 45px 100px;
@@ -544,6 +444,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     display: inline-block;
+    font-family: Baskervville, cursive;
 }
 
 .event-section .event-item-inner span {
@@ -605,7 +506,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 1px;
     display: inline-block;
-    font-family: baskervville, cursive;
+    font-family: Baskervville, cursive;
 
 }
 
@@ -633,14 +534,98 @@ header, section, footer {
 .event-section .menu-item-inner .choice-container span {
     font-weight: bold; /* Make span elements bold */
     font-size: 16px;
-    font-family: baskervville, cursive;
+    font-family: Baskervville, cursive;
 }
 
 .event-section .menu-item-inner .choice-container p {
     font-weight: normal; /* Make p elements not bold */
     font-size: 16px;
     margin: 5px 0 0; /* Adjust margin for spacing */
-    font-family: playfair, cursive;
+    font-family: Playfair, cursive;
+}
+
+.event-section .timeline-content {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.event-section .timeline-content:before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #ffffff;
+}
+
+.event-section .timeline-item i {
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: 5px;
+    width: 31px;
+    text-align: center;
+    padding: 5px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.event-section .timeline-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 100%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.event-section .timeline-item:last-child{
+    margin-bottom: 0px;
+}
+
+.event-section .timeline-item:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+.event-section .timeline-item:nth-child(odd) .timeline-text{
+    padding: 0 60px 0 15px;
+    text-align: right;
+}
+
+.event-section .timeline-item:nth-child(even) .timeline-text{
+    padding: 0 15px 0 60px;
+    text-align: left;
+}
+
+.event-section .timeline-text {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.event-section .timeline-text h3 {
+    font-size: 24px;
+    color: #000000;
+    font-weight: 500;
+    margin: 0 0 15px;
+    text-transform: capitalize;
+    font-family: Baskervville, cursive;
+}
+
+.event-section .timeline-text img {
+    color: #ffffff;
+    margin: 0 0 15px;
+    font-size: 24px;
+    max-width: 15%;
+}
+
+.event-section .timeline-text span {
+    display: block;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: Baskervville, cursive;
+    margin: 0 0 15px;
+    display: block;
 }
 
 /* Accommodation Section */
@@ -696,7 +681,7 @@ header, section, footer {
     margin-top: 10px;
     text-transform: capitalize;
     border-bottom: 1px solid #cccccc;
-
+    font-family: Baskervville, cursive;
     display: inline-block;
 }
 
@@ -704,6 +689,7 @@ header, section, footer {
     display: block;
     font-weight: 500;
     font-size: 16px;
+    font-family: Baskervville, cursive;
 }
 
 .accommodation-section .accommodation-item-inner p {
@@ -713,6 +699,7 @@ header, section, footer {
     color: #555555;
     flex-grow: 1;
     margin-bottom: 20px;
+    font-family: playfair, cursive;
 }
 
 .accommodation-section .accommodation-item-inner .btn-1 {
@@ -744,6 +731,7 @@ header, section, footer {
     font-size: 16px;
     margin-bottom: 10px;
     text-decoration: none;
+    font-family: baskervville, cursive;
     /* border-radius: 25px; */
 }
 
@@ -781,6 +769,7 @@ header, section, footer {
     color: #000000;
     margin: 20px 0 5px;
     text-transform: capitalize;
+    font-family: Baskervville, cursive;
 }
 
 .people-section .people-item-inner p {
@@ -788,54 +777,7 @@ header, section, footer {
     font-size: 16px;
     margin: 0 0 10px;
     text-transform: capitalize;
-}
-
-/* Registry */
-
-.registry-section {
-    padding: 80px 0 0;
-}
-
-.registry-section .registry-description {
-    gap: 0.5em;
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding: 0 60px;
-    text-align: center;
-    position: relative;
-    margin: auto;
-}
-
-.registry-section .registry-description p {
-    padding: 0 60px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 20px;
     font-family: playfair, cursive;
-}
-
-.registry-section .registry-cards {
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-    justify-items: center;
-    gap: 0.5em;
-    display: grid;
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding: 0 60px;
-    text-align: center;
-    position: relative;
-}
-
-.registry-section .registry-cards img {
-    max-width: 100%;
-    padding: 10px;
-    transition:
-        transform 150ms ease-in-out,
-}
-
-.registry-section .registry-cards img:hover {
-    transform: scale(1.1);
-    background-color: #fff8f0;
 }
 
 /* FAQ Section */
@@ -891,6 +833,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     display: inline-block;
+    font-family: Baskervville, cursive;
 }
 
 .faq-section .faq-item-inner span {
@@ -1028,7 +971,7 @@ header, section, footer {
 .footer .footer-content .couple-name h2 {
     font-size: 40px;
     /* font-family: "Great Vibes", cursive; */
-    font-family: "Playfair", cursive;
+    font-family: "Baskervville", cursive;
     color: #000000;
     margin: 0;
     font-weight: normal;
@@ -1039,7 +982,7 @@ header, section, footer {
 
 .footer .footer-content .couple-name h2 span {
     /* font-family: "Great Vibes", cursive; */
-    font-family: "Playfair", cursive;
+    font-family: "Baskervville", cursive;
     font-weight: normal;
     display: block;
 }
