@@ -1,11 +1,8 @@
 .btn-1:hover,
 .accommodation-section .accommodation-item-inner span,
 .faq-section .faq-item-inner span, i,
-.couple-section .couple h3,
-.couple-section .couple i.fa-heart,
-.header .nav ul li a.active,
-.header .nav ul li a:hover {
-    color: #b6c1a2;
+.couple-section .couple i.fa-heart {
+    color: #c4cbac;
 }
 
 .btn-1,
@@ -15,11 +12,23 @@
 .accommodation-section .accommodation-item-inner::before,
 .faq-section .faq-item-inner::before,
 .couple-section .couple img {
-    border-color: #b6c1a2;
+    border-color: #c4cbac;
 }
 
 .rsvp-section, .btn-1,
 .people-section .filter-btn.active,
 .event-section {
-    background-color: #b6c1a2;
+    background-color: #c4cbac;
+}
+
+.header .nav ul li a.active,
+.header .nav ul li a:hover,
+.header .logo a:hover {
+    color: #eaecee;
+}
+
+.header.fixed .nav ul li a.active,
+.header.fixed .nav ul li a:hover,
+.header.fixed .logo a:hover {
+    color: #c4cbac;
 }

@@ -105,7 +105,8 @@ header, section, footer {
 }
 
 .btn-1:hover {
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: #F5B29D;
 }
 
 /* Header */
@@ -210,11 +211,13 @@ header, section, footer {
     display: block;
     padding: 25px 0;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 20px;
     font-family: Baskervville, cursive;
     text-transform: lowercase;
     text-decoration: none;
-    transition:color 0.5s ease;
+    transition: color 0.5s ease;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 4px #000000; */
 }
 
 .header.fixed .nav ul li a {
@@ -253,7 +256,7 @@ header, section, footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #e1aa96;
+    background-color: #D8B1AC;
     z-index: -1;
     opacity: 1;
 }
@@ -299,7 +302,7 @@ header, section, footer {
 }
 
 .home-section .home-content a {
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff; /* Updated border color */
     border-radius: 30px;
     display: inline-block;
     color: #ffffff;
@@ -310,10 +313,14 @@ header, section, footer {
     /* font-family: 'Great Vibes', cursive; */
     font-family: "Baskervville", cursive;
     transition: 0.5s ease;
+    background: rgba(0, 0, 0, 0.25); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    -webkit-backdrop-filter: blur(5px); /* Blur effect for Safari */
+    /* box-shadow: 0 0 10px #888888; */
 }
 
 .home-section .home-content a:hover {
-    background-color: #97b97b;
+    background-color: #D7A7A0; /* Slightly darker on hover */
 }
 
 /* Couple Section */
@@ -382,6 +389,8 @@ header, section, footer {
 
 .event-section .section-title h2 {
     color: #ffffff;
+    padding: 25px 0;
+    margin: auto;
 }
 
 .event-section .section-title p {
@@ -518,7 +527,7 @@ header, section, footer {
     width: 100%;
     padding: 10px 0; /* Adjust padding for spacing */
     position: relative;
-    height: 130px; /* Set a consistent height for each choice-container */
+    height: 150px; /* Set a consistent height for each choice-container */
 }
 
 .event-section .menu-item-inner .choice-container:not(:last-child)::after {
@@ -604,8 +613,8 @@ header, section, footer {
 }
 
 .event-section .timeline-text h3 {
-    font-size: 24px;
-    color: #000000;
+    font-size: 28px;
+    color: #ffffff;
     font-weight: 500;
     margin: 0 0 15px;
     text-transform: capitalize;
@@ -621,8 +630,9 @@ header, section, footer {
 
 .event-section .timeline-text span {
     display: block;
+    color: #ffffff;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 28px;
     font-family: Baskervville, cursive;
     margin: 0 0 15px;
     display: block;
@@ -879,10 +889,13 @@ header, section, footer {
 
 .rsvp-section .form {
     max-width: 600px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
     margin: auto;
     padding: 60px 25px;
     box-shadow: 0 0 10px #888888;
+    border-radius: 16px;
 }
 
 .rsvp-section .form .input-group {

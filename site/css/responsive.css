@@ -1,23 +1,4 @@
-
-@media(min-width: 923px){
-    .header .nav {
-        display: block!important;
-    }
-}
-
-@media(max-width: 991px) {
-    .gallery-section .gallery-item,
-    .people-section .people-item,
-    .event-section .event-item,
-    .event-section .menu-item,
-    .accommodation-section .accommodation-item,
-    .faq-section .faq-item {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-}
-
-@media(max-width: 923px){
+@media(max-width: 923px) {
     .header .logo {
         padding: 8px 15px;
     }
@@ -94,9 +75,16 @@
 
     .event-section .event-item,
     .event-section .menu-item,
+    .event-section .menu-item .menu-item-inner,
     .accommodation-section .accommodation-item,
     .faq-section .faq-item,
     .story-section .story-text, .story-section .story-img {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .event-section .menu-item:nth-child(1),
+    .event-section .menu-item:nth-child(3) {
         flex: 0 0 100%;
         max-width: 100%;
     }
