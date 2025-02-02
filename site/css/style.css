@@ -105,8 +105,8 @@ header, section, footer {
 }
 
 .btn-1:hover {
-    /* background-color: transparent; */
-    background-color: #F5B29D;
+    background-color: transparent;
+    /* background-color: #F5B29D; */
 }
 
 /* Header */
@@ -297,26 +297,23 @@ header, section, footer {
     padding: 7px 30px;
     margin: 15px 0 0;
     font-weight: normal;
-    /* font-family: 'Great Vibes', cursive; */
     font-family: "Baskervville", cursive;
 }
 
 .home-section .home-content a {
     border: 1px solid #ffffff; /* Updated border color */
-    border-radius: 30px;
+    border-radius: 20px;
     display: inline-block;
     color: #ffffff;
     padding: 7px 30px;
     margin: 15px 0 0;
     font-size: 20px;
     font-weight: normal;
-    /* font-family: 'Great Vibes', cursive; */
     font-family: "Baskervville", cursive;
     transition: 0.5s ease;
     background: rgba(0, 0, 0, 0.25); /* Semi-transparent background */
     backdrop-filter: blur(5px); /* Blur effect */
     -webkit-backdrop-filter: blur(5px); /* Blur effect for Safari */
-    /* box-shadow: 0 0 10px #888888; */
 }
 
 .home-section .home-content a:hover {
@@ -943,6 +940,17 @@ header, section, footer {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+}
+
+.rsvp-section .form .input-group-btn .btn-1 {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+.rsvp-section .form .input-group-btn .btn-1:hover {
+    background-color: #D7A7A0;;
+    color: #ffffff;
 }
 
 /* Footer */
