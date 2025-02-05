@@ -81,20 +81,6 @@ resource "aws_s3_bucket_versioning" "static_website_versioning" {
   }
 }
 
-/* resource "aws_s3_object" "site_files" {
-  for_each = fileset(var.website_static_dir, "**")
-
-  bucket       = aws_s3_bucket.static_website_bucket.id
-  key          = each.value
-  source       = "${var.website_static_dir}/${each.key}"
-  source_hash  = filemd5("${var.website_static_dir}/${each.key}")
-  content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.key), null)
-  tags = {
-    "Project"   = "Wedding Website"
-    "ManagedBy" = "Terraform"
-  }
-} */
-
 # Redirect Bucket
 
 resource "aws_s3_bucket" "redirect_bucket" {
@@ -142,29 +128,3 @@ resource "aws_s3_bucket_versioning" "redirect_site_versioning" {
     status = "Enabled"
   }
 }
-
-/* resource "aws_s3_object" "redirect_site_files" {
-  for_each = fileset(var.website_static_dir, "**")
-
-  bucket       = aws_s3_bucket.redirect_bucket.id
-  key          = each.value
-  source       = "${var.website_static_dir}/${each.key}"
-  source_hash  = filemd5("${var.website_static_dir}/${each.key}")
-  content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.key), null)
-  tags = {
-    "Project"   = "Wedding Website"
-    "ManagedBy" = "Terraform"
-  }
-} */
-
-/* resource "aws_s3_bucket_cors_configuration" "redirect_bucket" {
-  bucket = aws_s3_bucket.redirect_bucket.id
-
-  cors_rule {
-    allowed_headers = ["Authorization"]
-    allowed_methods = ["GET", "HEAD"]
-    allowed_origins = ["https://${var.domain_name}"] # Replace with your domain in production
-    expose_headers  = ["ETag"]
-    max_age_seconds = 3600
-  }
-} */
