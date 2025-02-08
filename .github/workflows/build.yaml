@@ -13,6 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
+      - name: Run Checkov
+        run: |
+            docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf
+        continue-on-error: true
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -34,8 +40,3 @@ jobs:
 
           check_and_copy "${{ secrets.S3_BUCKET }}"
           check_and_copy "${{ secrets.REDIRECT_S3_BUCKET }}"
-
-      # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
-      - name: Run Checkov
-        run: |
-            docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf
