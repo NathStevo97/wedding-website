@@ -3,7 +3,6 @@ name: Build and deploy
 on:
   push:
     branches: [main]
-  #workflow_dispatch:
 
 jobs:
   build:
@@ -35,3 +34,8 @@ jobs:
 
           check_and_copy "${{ secrets.S3_BUCKET }}"
           check_and_copy "${{ secrets.REDIRECT_S3_BUCKET }}"
+
+      # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
+      - name: Run Checkov
+        run: |
+            docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf
