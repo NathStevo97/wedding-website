@@ -912,7 +912,7 @@ header, section, footer {
     height: 45px;
     margin-bottom: 30px;
     font-size: 16px;
-    color: #000000;
+    color: #ffffff;
     padding: 6px 12px;
     border: 1px solid #cccccc;
 }
@@ -951,6 +951,53 @@ header, section, footer {
 .rsvp-section .form .input-group-btn .btn-1:hover {
     background-color: #D7A7A0;;
     color: #ffffff;
+}
+
+.rsvp-section .form select.input-control {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
+}
+
+.rsvp-section .form select.input-control option {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.rsvp-section .form select.input-control:focus {
+    outline: none;
+}
+
+/* Style for placeholder option */
+.rsvp-section .form select.input-control option[value=""][disabled] {
+    color: #ffffff;
+}
+
+input[type="text"] {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+::placeholder {
+    color: #ffffff;
+    font-family: "Playfair", cursive;
+}
+
+textarea {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 /* Footer */
