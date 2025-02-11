@@ -1,6 +1,6 @@
 locals {
-    function_filename = "login_auth"
-    resource_timestamp = formatdate("YYYYMMDDhhmmss", timestamp())
+  function_filename  = "login_auth"
+  resource_timestamp = formatdate("YYYYMMDDhhmmss", timestamp())
 }
 
 resource "aws_iam_role" "lambda_edge_role" {
@@ -46,24 +46,24 @@ resource "null_resource" "package_lambda" {
   provisioner "local-exec" {
     working_dir = "${path.module}/lambdas"
     interpreter = ["PowerShell", "-Command"]
-    command = <<-EOT
+    command     = <<-EOT
        '${data.template_file.config_json.rendered}' | Out-File -FilePath ./${local.function_filename}/config.json -Encoding utf8
       Compress-Archive -Path ./${local.function_filename}/* -DestinationPath ./${local.function_filename}.zip -Force
     EOT
   }
   triggers = {
     config_hash = data.template_file.config_json.rendered
-    always_run = timestamp()
+    always_run  = timestamp()
   }
 }
 
 resource "aws_lambda_function" "auth_lambda" {
-  filename         = "${path.module}/lambdas/${local.function_filename}.zip" # The zipped file containing the above JS code
-  function_name    = "login-auth-lambda-${local.resource_timestamp}"
-  role             = aws_iam_role.lambda_edge_role.arn
-  handler          = "${local.function_filename}.handler"
-  runtime          = "nodejs18.x"
-  publish          = true
+  filename      = "${path.module}/lambdas/${local.function_filename}.zip" # The zipped file containing the above JS code
+  function_name = "login-auth-lambda-${local.resource_timestamp}"
+  role          = aws_iam_role.lambda_edge_role.arn
+  handler       = "${local.function_filename}.handler"
+  runtime       = "nodejs18.x"
+  publish       = true
 
   skip_destroy = true
 }

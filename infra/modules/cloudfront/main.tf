@@ -53,8 +53,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     #cache_policy_id  = var.caching_policy_id
 
     lambda_function_association {
-      event_type   = "viewer-request"
-      lambda_arn   = aws_lambda_function.auth_lambda.qualified_arn
+      event_type = "viewer-request"
+      lambda_arn = aws_lambda_function.auth_lambda.qualified_arn
     }
 
     forwarded_values {

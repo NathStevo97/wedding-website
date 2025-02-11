@@ -1,8 +1,3 @@
-variable "region" {
-  description = "The Region"
-  type        = string
-}
-
 variable "domain_name" {
   description = "The S3 Bucket Name/Domain Name"
   type        = string
