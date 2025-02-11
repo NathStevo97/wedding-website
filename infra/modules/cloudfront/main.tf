@@ -79,8 +79,5 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     minimum_protocol_version       = "TLSv1.2_2021"
   }
 
-  tags = {
-    "Project"   = "Wedding Website"
-    "ManagedBy" = "Terraform"
-  }
+  tags = var.tags
 }

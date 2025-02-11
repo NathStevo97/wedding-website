@@ -23,3 +23,7 @@ variable "site_password" {
   type        = string
   sensitive   = true
 }
+
+variable "tags" {
+  type = map(string)
+}

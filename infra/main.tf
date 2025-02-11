@@ -13,6 +13,7 @@ module "s3" {
   cloudfront_redirect_arn = module.cloudfront_redirect.distribution_arn
   cloudfront_oai          = module.cloudfront.cloudfront_oai_arn
   website_static_dir      = var.website_static_dir
+  tags                    = local.default_tags
 }
 
 module "certificate" {
@@ -38,6 +39,7 @@ module "cloudfront" {
   bucket_domain      = module.s3.bucket_domain_name
   caching_policy_id  = data.aws_cloudfront_cache_policy.CachingOptimized.id
   site_password      = var.site_password
+  tags = local.default_tags
 }
 
 data "aws_cloudfront_cache_policy" "CachingDisabled" {
@@ -50,6 +52,7 @@ module "cloudfront_redirect" {
   acm_certificate_id = module.certificate_redirect.certificate_id
   bucket_domain      = module.s3.redirect_bucket_domain_name
   caching_policy_id  = data.aws_cloudfront_cache_policy.CachingDisabled.id
+  tags = local.default_tags
 }
 
 module "route53" {

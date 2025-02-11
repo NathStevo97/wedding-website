@@ -17,10 +17,10 @@ variable "cloudfront_oai" {
   type = string
 }
 
-/* variable "redirect_cloudfront_oai" {
-  type = string
-} */
-
 variable "website_static_dir" {
   type = string
+}
+
+variable "tags" {
+  type = map(string)
 }

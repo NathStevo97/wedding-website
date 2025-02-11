@@ -17,3 +17,7 @@ variable "caching_policy_id" {
   description = "The Caching Policy Id"
   type        = string
 }
+
+variable "tags" {
+  type = map(string)
+}

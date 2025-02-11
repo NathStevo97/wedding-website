@@ -16,10 +16,7 @@ locals {
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket        = local.www_domain
   force_destroy = true
-  tags = {
-    "Project"   = "Wedding Website"
-    "ManagedBy" = "Terraform"
-  }
+  tags = var.tags
 
   provisioner "local-exec" {
     command = "aws s3 sync ../site s3://${local.www_domain}"
@@ -86,10 +83,7 @@ resource "aws_s3_bucket_versioning" "static_website_versioning" {
 resource "aws_s3_bucket" "redirect_bucket" {
   bucket        = var.domain_name
   force_destroy = true
-  tags = {
-    "Project"   = "Wedding Website"
-    "ManagedBy" = "Terraform"
-  }
+  tags = var.tags
 
   provisioner "local-exec" {
     command = "aws s3 sync ../site s3://${var.domain_name}"
