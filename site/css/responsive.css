@@ -1,3 +1,9 @@
+@media(max-width: 1071px) {
+    .event-section .menu-item-inner .choice-container {
+        height: 160px;
+    }
+}
+
 @media(max-width: 923px) {
     .header .logo {
         padding: 8px 15px;
