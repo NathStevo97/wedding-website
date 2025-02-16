@@ -74,16 +74,17 @@ header, section, footer {
 .section-title h2 {
     font-size: 45px;
     color: #000000;
-    font-weight: 700;
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Baskervville", cursive;
+    font-weight: 500;
+    /* font-family: "Great Vibes"; */
+    font-family: "Baskervville";
+    font-style: italic;
     letter-spacing: 2px;
     margin: 0;
     /* text-transform: capitalize; */
 }
 
 .section-title p {
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     font-size: 26px;
 }
 
@@ -135,8 +136,8 @@ header, section, footer {
     font-size: 30px;
     color: #ffffff;
     font-weight: bold;
-    /* font-family: 'Great Vibes', cursive; */
-    font-family: "Baskervville", cursive;
+    /* font-family: 'Great Vibes'; */
+    font-family: "Baskervville";
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.5s ease;
@@ -212,7 +213,7 @@ header, section, footer {
     padding: 25px 0;
     color: #ffffff;
     font-size: 20px;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
     text-transform: lowercase;
     text-decoration: none;
     transition: color 0.5s ease;
@@ -276,7 +277,7 @@ header, section, footer {
     font-size: 24px;
     color: #ffffff;
     margin: 0 0 15px;
-    font-family: "Baskervville", cursive;
+    font-family: "Baskervville";
     font-weight: normal;
 }
 
@@ -285,7 +286,7 @@ header, section, footer {
     color: #ffffff;
     margin: 0;
     font-weight: normal;
-    font-family: "Baskervville", cursive;
+    font-family: "Baskervville";
 }
 
 .home-section .home-content span {
@@ -297,7 +298,7 @@ header, section, footer {
     padding: 7px 30px;
     margin: 15px 0 0;
     font-weight: normal;
-    font-family: "Baskervville", cursive;
+    font-family: "Baskervville";
 }
 
 .home-section .home-content a {
@@ -309,7 +310,7 @@ header, section, footer {
     margin: 15px 0 0;
     font-size: 20px;
     font-weight: normal;
-    font-family: "Baskervville", cursive;
+    font-family: "Baskervville";
     transition: 0.5s ease;
     background: rgba(0, 0, 0, 0.25); /* Semi-transparent background */
     backdrop-filter: blur(5px); /* Blur effect */
@@ -365,8 +366,8 @@ header, section, footer {
 .couple-section .couple h3 {
     font-size: 40px;
     margin: 15px 0;
-    /* font-family: 'Great Vibes', cursive; */
-    font-family: "Baskervville", cursive;
+    /* font-family: 'Great Vibes'; */
+    font-family: "Baskervville";
     font-weight: normal;
     letter-spacing: 2px;
 }
@@ -375,7 +376,80 @@ header, section, footer {
     font-size: 16px;
     line-height: 26px;
     color: #555555;
-    font-family: Playfair, cursive;
+    font-family: Playfair;
+}
+
+/* People Section */
+
+.people-section {
+    padding: 80px 10px 80px 10px;
+}
+
+.people-section .people-filter {
+    /* background-color: red; */
+    padding: 0 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.people-section .filter-btn {
+    background-color: #dedede;
+    color: #555555;
+    padding: 7px 15px;
+    display: inline-block;
+    margin: 0 3px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-family: baskervville;
+    /* border-radius: 25px; */
+}
+
+.people-section .filter-btn.active {
+    color: #ffffff;
+}
+
+.people-section .people-item {
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding: 15px;
+    display: none;
+}
+
+.people-section .people-item-inner {
+    background-color: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
+
+.people-section .people-item-inner img {
+    width: 100%;
+    box-shadow: 0 0 15px #cccccc;
+    margin-top: 0px;
+    transition: all 0.5s ease;
+}
+
+.people-section .people-item-inner:hover img {
+    transform: scale(0.95);
+}
+
+.people-section .people-item-inner h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin: 20px 0 5px;
+    text-transform: capitalize;
+    font-family: Baskervville;
+}
+
+.people-section .people-item-inner p {
+    color: #555555;
+    font-size: 16px;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    font-family: playfair;
 }
 
 /* Event Section */
@@ -394,7 +468,7 @@ header, section, footer {
     font-size: 30px;
     color: #ffffff;
     margin: 0 0 5px 0;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     font-weight: bold;
 }
 
@@ -450,7 +524,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     display: inline-block;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
 }
 
 .event-section .event-item-inner span {
@@ -512,7 +586,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 1px;
     display: inline-block;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
 
 }
 
@@ -540,14 +614,14 @@ header, section, footer {
 .event-section .menu-item-inner .choice-container span {
     font-weight: bold; /* Make span elements bold */
     font-size: 16px;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
 }
 
 .event-section .menu-item-inner .choice-container p {
     font-weight: normal; /* Make p elements not bold */
     font-size: 16px;
     margin: 5px 0 0; /* Adjust margin for spacing */
-    font-family: Playfair, cursive;
+    font-family: Playfair;
 }
 
 .event-section .timeline-content {
@@ -599,30 +673,38 @@ header, section, footer {
     text-align: right;
 }
 
+/* .event-section .timeline-item:nth-child(odd) .timeline-img{
+    padding: 0 15px 0 60px;
+    text-align: right;
+} */
+
 .event-section .timeline-item:nth-child(even) .timeline-text{
     padding: 0 15px 0 60px;
     text-align: left;
 }
+
+/* .event-section .timeline-item:nth-child(even) .timeline-img{
+    padding: 0 60px 0 15px;
+    text-align: right;
+} */
 
 .event-section .timeline-text {
     flex: 0 0 50%;
     max-width: 50%;
 }
 
+/* .event-section .timeline-img {
+    flex: 0 0 50%;
+    max-width: 19%;
+} */
+
 .event-section .timeline-text h3 {
     font-size: 28px;
     color: #ffffff;
     font-weight: 500;
     margin: 0 0 15px;
-    text-transform: capitalize;
-    font-family: Baskervville, cursive;
-}
-
-.event-section .timeline-text img {
-    color: #ffffff;
-    margin: 0 0 15px;
-    font-size: 24px;
-    max-width: 15%;
+    /* text-transform: capitalize; */
+    font-family: Baskervville;
 }
 
 .event-section .timeline-text span {
@@ -630,7 +712,7 @@ header, section, footer {
     color: #ffffff;
     font-weight: 500;
     font-size: 28px;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
     margin: 0 0 15px;
     display: block;
 }
@@ -688,7 +770,7 @@ header, section, footer {
     margin-top: 10px;
     text-transform: capitalize;
     border-bottom: 1px solid #cccccc;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
     display: inline-block;
 }
 
@@ -696,7 +778,7 @@ header, section, footer {
     display: block;
     font-weight: 500;
     font-size: 16px;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
 }
 
 .accommodation-section .accommodation-item-inner p {
@@ -706,85 +788,12 @@ header, section, footer {
     color: #555555;
     flex-grow: 1;
     margin-bottom: 20px;
-    font-family: playfair, cursive;
+    font-family: playfair;
 }
 
 .accommodation-section .accommodation-item-inner .btn-1 {
     align-self: center; /* Horizontally center the button */
     margin-top: auto; /* Push the button to the bottom */
-}
-
-/* People Section */
-
-.people-section {
-    padding: 80px 10px 80px 10px;
-}
-
-.people-section .people-filter {
-    /* background-color: red; */
-    padding: 0 15px;
-    flex: 0 0 100%;
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.people-section .filter-btn {
-    background-color: #dedede;
-    color: #555555;
-    padding: 7px 15px;
-    display: inline-block;
-    margin: 0 3px;
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-decoration: none;
-    font-family: baskervville, cursive;
-    /* border-radius: 25px; */
-}
-
-.people-section .filter-btn.active {
-    color: #ffffff;
-}
-
-.people-section .people-item {
-    flex: 0 0 30%;
-    max-width: 30%;
-    padding: 15px;
-    display: none;
-}
-
-.people-section .people-item-inner {
-    background-color: #ffffff;
-    padding: 15px;
-    text-align: center;
-}
-
-.people-section .people-item-inner img {
-    width: 100%;
-    box-shadow: 0 0 15px #cccccc;
-    margin-top: 0px;
-    transition: all 0.5s ease;
-}
-
-.people-section .people-item-inner:hover img {
-    transform: scale(0.95);
-}
-
-.people-section .people-item-inner h4 {
-    font-size: 16px;
-    font-weight: 500;
-    color: #000000;
-    margin: 20px 0 5px;
-    text-transform: capitalize;
-    font-family: Baskervville, cursive;
-}
-
-.people-section .people-item-inner p {
-    color: #555555;
-    font-size: 16px;
-    margin: 0 0 10px;
-    text-transform: capitalize;
-    font-family: playfair, cursive;
 }
 
 /* FAQ Section */
@@ -798,7 +807,7 @@ header, section, footer {
     font-size: 28px;
     line-height: 26px;
     color: #555555;
-    font-family: playfair, cursive;
+    font-family: playfair;
 }
 
 .faq-section .faq-item {
@@ -840,7 +849,7 @@ header, section, footer {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     display: inline-block;
-    font-family: Baskervville, cursive;
+    font-family: Baskervville;
 }
 
 .faq-section .faq-item-inner span {
@@ -872,7 +881,7 @@ header, section, footer {
 }
 
 .rsvp-section .section-title p {
-    font-family: Playfair, cursive;
+    font-family: Playfair;
     margin: 10px 0 0;
     font-size: 32px;
     line-height: 26px;
@@ -965,6 +974,8 @@ header, section, footer {
     background-repeat: no-repeat;
     background-position: right 8px center;
     padding-right: 30px;
+    cursor: pointer;
+
 }
 
 .rsvp-section .form select.input-control option {
@@ -990,7 +1001,7 @@ input[type="text"] {
 
 ::placeholder {
     color: #ffffff;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
 }
 
 textarea {
@@ -1038,8 +1049,8 @@ textarea {
 
 .footer .footer-content .couple-name h2 {
     font-size: 40px;
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Baskervville", cursive;
+    /* font-family: "Great Vibes"; */
+    font-family: "Baskervville";
     color: #000000;
     margin: 0;
     font-weight: normal;
@@ -1049,16 +1060,16 @@ textarea {
 }
 
 .footer .footer-content .couple-name h2 span {
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Baskervville", cursive;
+    /* font-family: "Great Vibes"; */
+    font-family: "Baskervville";
     font-weight: normal;
     display: block;
 }
 
 .footer .footer-content p {
     font-size: 40px;
-    /* font-family: "Great Vibes", cursive; */
-    font-family: "Playfair", cursive;
+    /* font-family: "Great Vibes"; */
+    font-family: "Playfair";
     color: #000000;
     margin: 0;
     font-weight: normal;

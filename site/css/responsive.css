@@ -54,15 +54,11 @@
         display: none;
     }
 
-    .story-section .story-img {
-        margin-top: 20px;
-    }
-
-    .story-section .story-content:before {
+    .event-section .timeline-content:before {
         left: 20px;
     }
 
-    .story-section .story-item i {
+    .event-section .timeline-item i {
         margin-left: 0px;
         left: 5px;
     }
@@ -84,7 +80,7 @@
     .event-section .menu-item .menu-item-inner,
     .accommodation-section .accommodation-item,
     .faq-section .faq-item,
-    .story-section .story-text, .story-section .story-img {
+    .event-section .timeline-text {
         flex: 0 0 100%;
         max-width: 100%;
     }
@@ -95,17 +91,12 @@
         max-width: 100%;
     }
 
-    .story-section .story-item:nth-child(odd) .story-text {
+    .event-section .timeline-item:nth-child(odd) .timeline-text {
         padding: 0 15px 0 50px;
         text-align: left;
     }
 
-    .story-section .story-item:nth-child(even) .story-img {
-        padding: 0 15px 0 50px;
-    }
-
-    .story-section .story-item:nth-child(even) .story-text,
-    .story-section .story-item:nth-child(odd) .story-img {
+    .event-section .timeline-item:nth-child(even) .timeline-text {
         padding: 0 15px 0 50px;
     }
 
@@ -128,6 +119,11 @@
     }
     .home-section .home-content h1 {
         font-size: 40px;
+    }
+
+    .event-section .timeline-text {
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 
     .rsvp-section .form .input-group.w50,

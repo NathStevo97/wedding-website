@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
 
 body {
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,7 +52,7 @@ form {
     z-index: 3; /* Bring the form above the background */
     padding: 20px;
     text-align: center;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     background: rgba(0, 0, 0, 0.25);
     color: white;
     border-radius: 16px;
@@ -69,14 +69,14 @@ form h1 {
     color: #ffffff;
     margin: 0;
     font-weight: normal;
-    font-family: "Baskervville", cursive;
+    font-family: "Baskervville";
 }
 
 form p {
     font-size: 24px;
     color: #ffffff;
     margin: 0 0 15px;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     font-weight: normal;
     max-width: 100%;
     max-width: 750px;
@@ -130,7 +130,7 @@ input[type="password"] , input[type="text"]{
 
 ::placeholder {
     color: #ffffff;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
 }
 
 input[type="submit"] {
@@ -141,7 +141,7 @@ input[type="submit"] {
     padding: 7px 30px;
     font-size: 20px;
     font-weight: normal;
-    font-family: "Playfair", cursive;
+    font-family: "Playfair";
     transition: 0.5s ease;
     cursor: pointer;
 }
