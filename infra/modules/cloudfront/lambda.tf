@@ -1,6 +1,7 @@
 locals {
   function_filename  = "login_auth"
   resource_timestamp = formatdate("YYYYMMDDhhmmss", timestamp())
+  lambda_dir_hash    = sha256(join("", [for f in fileset("${path.module}/lambdas/${local.function_filename}", "*"): filesha256("${path.module}/lambdas/${local.function_filename}/${f}")]))
 }
 
 resource "aws_iam_role" "lambda_edge_role" {
@@ -52,8 +53,8 @@ resource "null_resource" "package_lambda" {
     EOT
   }
   triggers = {
-    config_hash = data.template_file.config_json.rendered
-    always_run  = timestamp()
+    lambda_dir_hash = local.lambda_dir_hash
+    config_hash     = data.template_file.config_json.rendered
   }
 }
 

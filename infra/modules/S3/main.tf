@@ -122,3 +122,12 @@ resource "aws_s3_bucket_versioning" "redirect_site_versioning" {
     status = "Enabled"
   }
 }
+
+resource "aws_s3_bucket_website_configuration" "redirect" {
+  bucket = aws_s3_bucket.redirect_bucket.id
+
+  redirect_all_requests_to {
+    host_name = "www.${var.domain_name}"
+    protocol  = "https"
+  }
+}

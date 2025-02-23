@@ -25,6 +25,13 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
+  custom_error_response {
+    error_code            = 403
+    response_code        = 200
+    response_page_path   = "/"
+    error_caching_min_ttl = 0
+  }
+
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
@@ -41,6 +48,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
+    min_ttl                = 0
+    default_ttl            = 0  // Reduce caching for redirects
+    max_ttl                = 0
   }
 
   viewer_certificate {
