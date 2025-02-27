@@ -987,7 +987,6 @@ header, section, footer {
     outline: none;
 }
 
-/* Style for placeholder option */
 .rsvp-section .form select.input-control option[value=""][disabled] {
     color: #ffffff;
 }
@@ -1081,6 +1080,7 @@ textarea {
 /* Copyright */
 
 p.copyright-text {
+    background-color: #D8B1AC;
     text-align: center;
     font-size: 14px;
     padding: 20px 15px;
