@@ -618,16 +618,15 @@
       fetch(scriptURL, { method: 'POST', body: requestBody})
         .then(response => {
            alert('Success!', response)
+           form.reset()  // Clear the form fields
            submitButton.disabled = false
           })
         .catch(error => {
         alert('Error!', error.message)
           submitButton.disabled = false
-
-        }
-        )
+        })
     })
- </script>
+</script>
 
  <!-- Script moved to the end of the body -->
 <script>
