@@ -86,6 +86,7 @@ header, section, footer {
 .section-title p {
     font-family: "Playfair";
     font-size: 26px;
+    font-weight: normal;
 }
 
 .btn-1 {
