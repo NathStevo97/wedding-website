@@ -84,7 +84,7 @@ header, section, footer {
 }
 
 .section-title p {
-    font-family: "Playfair";
+    font-family: "Baskervville";
     font-size: 26px;
     font-weight: normal;
 }
@@ -469,7 +469,7 @@ header, section, footer {
     font-size: 30px;
     color: #ffffff;
     margin: 0 0 5px 0;
-    font-family: "Playfair";
+    font-family: "Baskervville";
     font-weight: bold;
 }
 
@@ -808,7 +808,7 @@ header, section, footer {
     font-size: 28px;
     line-height: 26px;
     color: #555555;
-    font-family: playfair;
+    font-family: Baskervville;
 }
 
 .faq-section .faq-item {
@@ -882,7 +882,7 @@ header, section, footer {
 }
 
 .rsvp-section .section-title p {
-    font-family: Playfair;
+    font-family: Baskervville;
     margin: 10px 0 0;
     font-size: 32px;
     line-height: 26px;
