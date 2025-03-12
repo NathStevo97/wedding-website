@@ -470,7 +470,7 @@ header, section, footer {
     color: #ffffff;
     margin: 0 0 5px 0;
     font-family: "Baskervville";
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .event-section .event-map {
@@ -846,7 +846,7 @@ header, section, footer {
     font-weight: 500;
     font-size: 24px;
     margin: 0 0 15px;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     display: inline-block;
