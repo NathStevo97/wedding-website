@@ -10,9 +10,9 @@ provider "aws" {
 
 resource "aws_acm_certificate" "cert" {
   provider                  = aws.acm_provider
-  domain_name              = var.domain_name  # e.g. chloeandnathan.com
-  subject_alternative_names = ["*.${var.domain_name}"]  # e.g. *.chloeandnathan.com
-  validation_method        = "DNS"
+  domain_name               = var.domain_name          # e.g. chloeandnathan.com
+  subject_alternative_names = ["*.${var.domain_name}"] # e.g. *.chloeandnathan.com
+  validation_method         = "DNS"
 
   lifecycle {
     create_before_destroy = true

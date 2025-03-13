@@ -16,7 +16,7 @@ locals {
 resource "aws_s3_bucket" "static_website_bucket" {
   bucket        = local.www_domain
   force_destroy = true
-  tags = var.tags
+  tags          = var.tags
 
   provisioner "local-exec" {
     command = "aws s3 sync ../site s3://${local.www_domain}"

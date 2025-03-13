@@ -1,7 +1,7 @@
 locals {
   function_filename  = "login_auth"
   resource_timestamp = formatdate("YYYYMMDDhhmmss", timestamp())
-  lambda_dir_hash    = sha256(join("", [for f in fileset("${path.module}/lambdas/${local.function_filename}", "*"): filesha256("${path.module}/lambdas/${local.function_filename}/${f}")]))
+  lambda_dir_hash    = sha256(join("", [for f in fileset("${path.module}/lambdas/${local.function_filename}", "*") : filesha256("${path.module}/lambdas/${local.function_filename}/${f}")]))
 }
 
 resource "aws_iam_role" "lambda_edge_role" {
