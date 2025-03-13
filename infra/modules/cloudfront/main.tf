@@ -16,7 +16,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   enabled             = true
   default_root_object = "index.html"
   http_version        = "http2and3"
-  aliases             = [var.domain_name]
+  aliases             = [var.domain_name, "www.${var.domain_name}"]
 
   custom_error_response {
     error_caching_min_ttl = 0

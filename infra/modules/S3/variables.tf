@@ -8,11 +8,6 @@ variable "cloudfront_arn" {
   type        = string
 }
 
-variable "cloudfront_redirect_arn" {
-  description = "The Arn for the redirect Cloudfront Distribution"
-  type        = string
-}
-
 variable "cloudfront_oai" {
   type = string
 }
