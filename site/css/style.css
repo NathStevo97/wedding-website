@@ -927,6 +927,13 @@ header, section, footer {
     border: 1px solid #cccccc;
 }
 
+.rsvp-section .form label {
+    font-family: "Playfair";
+    color: #ffffff;
+    margin-bottom: 5px;
+    display: block;
+}
+
 .rsvp-section .form textarea.input-control {
     height: 120px;
     padding-top: 12px;
@@ -976,12 +983,13 @@ header, section, footer {
     background-position: right 8px center;
     padding-right: 30px;
     cursor: pointer;
-
+    font-family: "Playfair";
 }
 
 .rsvp-section .form select.input-control option {
     background-color: #ffffff;
     color: #000000;
+    font-family: "Playfair";
 }
 
 .rsvp-section .form select.input-control:focus {
