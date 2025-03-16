@@ -95,9 +95,9 @@ resource "aws_s3_bucket_public_access_block" "logging_public_access" {
 }
 
 resource "aws_s3_bucket_acl" "log_bucket_acl" {
-  bucket = aws_s3_bucket.logging_bucket.id
+  bucket     = aws_s3_bucket.logging_bucket.id
   depends_on = [aws_s3_bucket_ownership_controls.static_website_ownership]
-  acl    = "log-delivery-write"
+  acl        = "log-delivery-write"
 }
 
 resource "aws_s3_bucket_logging" "logging_config" {
