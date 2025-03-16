@@ -77,3 +77,22 @@ resource "aws_s3_bucket_versioning" "static_website_versioning" {
     status = "Enabled"
   }
 }
+
+# Logging Infrastructure
+
+resource "aws_s3_bucket" "logging_bucket" {
+  bucket = "${local.www_domain}-logs"
+  tags   = var.tags
+}
+
+resource "aws_s3_bucket_acl" "log_bucket_acl" {
+  bucket = aws_s3_bucket.logging_bucket.id
+  acl    = "log-delivery-write"
+}
+
+resource "aws_s3_bucket_logging" "logging_config" {
+  bucket = aws_s3_bucket.static_website_bucket.id
+
+  target_bucket = aws_s3_bucket.logging_bucket.id
+  target_prefix = "log/"
+}

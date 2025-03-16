@@ -60,7 +60,7 @@ resource "null_resource" "package_lambda" {
 
 resource "aws_lambda_function" "auth_lambda" {
   filename      = "${path.module}/lambdas/${local.function_filename}.zip" # The zipped file containing the above JS code
-  function_name = "login-auth-lambda-${local.resource_timestamp}"
+  function_name = "login-auth-lambda"
   role          = aws_iam_role.lambda_edge_role.arn
   handler       = "${local.function_filename}.handler"
   runtime       = "nodejs18.x"
