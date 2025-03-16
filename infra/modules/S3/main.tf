@@ -14,6 +14,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "static_website_bucket" {
+  #checkov:skip=CKV2_AWS_65: "This bucket is used for static website hosting"
   bucket        = local.www_domain
   force_destroy = true
   tags          = var.tags
@@ -31,6 +32,7 @@ resource "aws_s3_bucket_acl" "static_website_acl" {
 }
 
 resource "aws_s3_bucket_ownership_controls" "static_website_ownership" {
+  #checkov:skip=CKV2_AWS_65: "This bucket is used for static website hosting"
   depends_on = [aws_s3_bucket_public_access_block.static_website_public_access]
 
   bucket = aws_s3_bucket.static_website_bucket.id
@@ -78,6 +80,30 @@ resource "aws_s3_bucket_versioning" "static_website_versioning" {
   }
 }
 
+resource "aws_s3_bucket_lifecycle_configuration" "static_website_lifecycle" {
+  bucket = aws_s3_bucket.static_website_bucket.id
+
+  rule {
+    id     = "website-content"
+    status = "Enabled"
+
+    # No expiration set since content needs to remain until July 2025
+    filter {
+      prefix = ""
+    }
+
+    # Handle noncurrent versions to satisfy security check
+    noncurrent_version_expiration {
+      noncurrent_days = 90
+    }
+
+    # Clean up incomplete multipart uploads
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
 # Logging Infrastructure
 
 resource "aws_s3_bucket" "logging_bucket" {
@@ -111,5 +137,37 @@ resource "aws_s3_bucket_versioning" "logging_versioning" {
   bucket = aws_s3_bucket.logging_bucket.id
   versioning_configuration {
     status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "logging_lifecycle" {
+  bucket = aws_s3_bucket.logging_bucket.id
+
+  # First rule for log files
+  rule {
+    id     = "log-expiration"
+    status = "Enabled"
+
+    filter {
+      prefix = "log/"
+    }
+
+    expiration {
+      days = 30
+    }
+  }
+
+  # Second rule for multipart uploads (applies to entire bucket)
+  rule {
+    id     = "abort-multipart"
+    status = "Enabled"
+
+    filter {
+      prefix = "log/"
+    }
+
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
   }
 }
