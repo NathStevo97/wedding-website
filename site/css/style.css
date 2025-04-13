@@ -870,6 +870,11 @@ header, section, footer {
     margin: 0;
 }
 
+.faq-section .faq-item-inner .btn-1 {
+    align-self: center; /* Horizontally center the button */
+    margin-top: auto; /* Push the button to the bottom */
+}
+
 /* RSVP Section */
 
 .rsvp-section {
