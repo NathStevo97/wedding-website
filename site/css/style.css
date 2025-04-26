@@ -893,6 +893,10 @@ header, section, footer {
     line-height: 26px;
 }
 
+.rsvp-section .section-title .rsvp-text {
+    font-size: 26px;
+}
+
 .rsvp-section .rsvp-form {
     flex: 0 0 100%;
     max-width: 100%;
