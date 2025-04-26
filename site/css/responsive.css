@@ -4,6 +4,16 @@
     }
 }
 
+@media(max-width: 1108px) {
+    .people-section .people-item {
+        height: 550px;
+    }
+
+    .people-section .people-item-inner {
+        height: 100%;
+    }
+}
+
 @media(max-width: 923px) {
     .header .logo {
         padding: 8px 15px;
@@ -145,5 +155,9 @@
     .footer .footer-content .couple-name p,
     .footer .footer-content .couple-name h2 {
         font-size: 32px;
+    }
+
+    .people-section .people-item {
+        height: auto; /* Reset height for mobile */
     }
 }
