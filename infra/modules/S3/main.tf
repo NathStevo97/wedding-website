@@ -107,8 +107,9 @@ resource "aws_s3_bucket_lifecycle_configuration" "static_website_lifecycle" {
 # Logging Infrastructure
 
 resource "aws_s3_bucket" "logging_bucket" {
-  bucket = "${local.www_domain}-logs"
-  tags   = var.tags
+  bucket        = "${local.www_domain}-logs"
+  force_destroy = true
+  tags          = var.tags
 }
 
 resource "aws_s3_bucket_public_access_block" "logging_public_access" {
