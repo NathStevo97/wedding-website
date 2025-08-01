@@ -1,6 +1,6 @@
 # Chloe & Nathan's Wedding Website
 
-Repository to house code for hosting and deploying the wedding website for myself and my lovely fiancee / soon-to-be-wife.
+Repository to house code for hosting and deploying the wedding website for myself and my lovely wife.
 
 ## Website
 
@@ -90,3 +90,7 @@ Tearing down the infrastructure can be achieved by the same `Makefile`:
 ```shell
 make destroy-site
 ```
+
+## Acknowledgements
+
+This project was inspired by TheWebShala's YouTube [tutorial](https://www.youtube.com/watch?v=RFcD3ULkAbc), which provided a helpful foundation for visual and structural ideas. All code and content in this repository under `./site` has been adapted, customized, or rewritten to suit the needs of our wedding.
