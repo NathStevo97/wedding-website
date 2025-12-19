@@ -6,8 +6,10 @@ destroy-site:
 
 rebuild-site: destroy-site build-site
 
+test-site: build-site destroy-site
+
 secure-lint:
-	terraform fmt -check=true
+	terraform fmt -recursive -check=true ./
 	terraform validate
 	tflint
-	docker run -t -v .:/tf --workdir /tf bridgecrew/checkov --directory /tf --quiet
+	checkov -d .
