@@ -46,10 +46,15 @@ data "template_file" "config_json" {
 resource "null_resource" "package_lambda" {
   provisioner "local-exec" {
     working_dir = "${path.module}/lambdas"
-    interpreter = ["PowerShell", "-Command"]
+    interpreter = ["/bin/bash", "-c"]
     command     = <<-EOT
-       '${data.template_file.config_json.rendered}' | Out-File -FilePath ./${local.function_filename}/config.json -Encoding utf8
-      Compress-Archive -Path ./${local.function_filename}/* -DestinationPath ./${local.function_filename}.zip -Force
+      rm -f "./${local.function_filename}.zip"
+
+      cat > "./${local.function_filename}/config.json" <<'EOF'
+      ${data.template_file.config_json.rendered}
+      EOF
+
+      (cd "./${local.function_filename}" && zip -r "../${local.function_filename}.zip" .)
     EOT
   }
   triggers = {

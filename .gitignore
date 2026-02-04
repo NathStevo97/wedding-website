@@ -14,5 +14,5 @@ infra/terraform.tfvars
 infra/modules/cloudfront/lambda_package/**
 infra/modules/cloudfront/auth_function.zip
 
-config.json
+**/config.json
 **/*.zip
