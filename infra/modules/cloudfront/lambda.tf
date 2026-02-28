@@ -50,9 +50,9 @@ resource "null_resource" "package_lambda" {
     command     = <<-EOT
       rm -f "./${local.function_filename}.zip"
 
-      cat > "./${local.function_filename}/config.json" <<'EOF'
-      ${data.template_file.config_json.rendered}
-      EOF
+      cat > "./${local.function_filename}/config.json" <<-EOF
+${data.template_file.config_json.rendered}
+EOF
 
       (cd "./${local.function_filename}" && zip -r "../${local.function_filename}.zip" .)
     EOT
