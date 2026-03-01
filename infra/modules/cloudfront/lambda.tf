@@ -42,34 +42,27 @@ data "template_file" "config_json" {
   }
 }
 
-# Create the Lambda ZIP file with the config.json file dynamically generated
-resource "null_resource" "package_lambda" {
-  provisioner "local-exec" {
-    working_dir = "${path.module}/lambdas"
-    interpreter = ["/bin/bash", "-c"]
-    command     = <<-EOT
-      rm -f "./${local.function_filename}.zip"
+resource "local_file" "config_json" {
+  filename = "${path.module}/lambdas/${local.function_filename}/config.json"
+  content  = data.template_file.config_json.rendered
+}
 
-      cat > "./${local.function_filename}/config.json" <<-EOF
-${data.template_file.config_json.rendered}
-EOF
+data "archive_file" "lambda_zip" {
+  type        = "zip"
+  source_dir  = "${path.module}/lambdas/${local.function_filename}"
+  output_path = "${path.module}/lambdas/${local.function_filename}.zip"
 
-      (cd "./${local.function_filename}" && zip -r "../${local.function_filename}.zip" .)
-    EOT
-  }
-  triggers = {
-    lambda_dir_hash = local.lambda_dir_hash
-    config_hash     = data.template_file.config_json.rendered
-  }
+  depends_on = [local_file.config_json]
 }
 
 resource "aws_lambda_function" "auth_lambda" {
-  filename      = "${path.module}/lambdas/${local.function_filename}.zip" # The zipped file containing the above JS code
-  function_name = "login-auth-lambda"
-  role          = aws_iam_role.lambda_edge_role.arn
-  handler       = "${local.function_filename}.handler"
-  runtime       = "nodejs18.x"
-  publish       = true
+  filename         = data.archive_file.lambda_zip.output_path # The zipped file containing the above JS code
+  source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+  function_name    = "login-auth-lambda"
+  role             = aws_iam_role.lambda_edge_role.arn
+  handler          = "${local.function_filename}.handler"
+  runtime          = "nodejs18.x"
+  publish          = true
 
   skip_destroy = true
 }

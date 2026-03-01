@@ -2,7 +2,7 @@ TF_DIR := infra
 
 
 init-site:
-	cd $(TF_DIR) && terraform init
+	cd $(TF_DIR) && terraform init -upgrade
 
 validate-site:
 	cd $(TF_DIR) && terraform validate
