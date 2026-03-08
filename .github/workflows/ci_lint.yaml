@@ -5,15 +5,48 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: TFLint
+  fmt_check:
+    name: Terraform fmt check
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-        # TFLint - Terraform Check
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform fmt (check)
+        run: terraform -chdir=infra fmt -check -recursive
+
+  validate:
+    name: Terraform validate
+    needs: fmt_check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform init
+        run: terraform -chdir=infra init -backend=false
+
+      - name: Terraform validate
+        run: terraform -chdir=infra validate
+
+  tflint:
+    name: TFLint
+    needs: validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # TFLint - Terraform Check
       - uses: actions/cache@v5
         name: Cache plugin dir
         with:
