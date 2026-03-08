@@ -17,4 +17,3 @@ jobs:
       - name: Run Checkov
         run: |
             docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf --quiet
-        continue-on-error: true
