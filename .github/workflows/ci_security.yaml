@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: Checkov
+  Checkov-Security-Scan:
+    name: Run Checkov
     runs-on: ubuntu-latest
 
     steps:
