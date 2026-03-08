@@ -1,4 +1,4 @@
-name: Build and deploy
+name: CI Code Quality
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy
+    name: TFLint
     runs-on: ubuntu-latest
 
     steps:
@@ -36,9 +36,3 @@ jobs:
       # Run tflint command in each directory recursively # use --force if you want to continue with workflow although errors are there
       - name: Run TFLint
         run: tflint -f compact --chdir ${{ github.workspace }}/infra
-
-      # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
-      - name: Run Checkov
-        run: |
-            docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf --quiet
-        continue-on-error: true

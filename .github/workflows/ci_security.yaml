@@ -1,0 +1,20 @@
+name: CI Security
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Checkov
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # Checkov - Prevent cloud misconfigurations and find vulnerabilities during build-time in infrastructure as code
+      - name: Run Checkov
+        run: |
+            docker run -t -v ${{ github.workspace }}/infra:/tf --workdir /tf bridgecrew/checkov --directory /tf --quiet
+        continue-on-error: true
