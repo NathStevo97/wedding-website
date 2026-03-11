@@ -5,6 +5,23 @@ on:
     branches: [main]
 
 jobs:
+  Trivy-File-Scan:
+    name: Run Trivy FS Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Run Trivy filesystem scan
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH'
+          exit-code: '1'
+          scanners: 'vuln,misconfig,secret'
+
   Checkov-Security-Scan:
     name: Run Checkov
     runs-on: ubuntu-latest
