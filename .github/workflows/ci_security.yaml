@@ -5,30 +5,6 @@ on:
     branches: [main]
 
 jobs:
-  Trivy-File-Scan:
-    name: Run Trivy FS Scan
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Manual Trivy Setup
-        uses: aquasecurity/setup-trivy@v0.2.0
-        with:
-          cache: true
-          version: v0.69.3
-
-      - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          ignore-unfixed: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL'
-          skip-setup-trivy: true
-
   Checkov-Security-Scan:
     name: Run Checkov
     runs-on: ubuntu-latest
