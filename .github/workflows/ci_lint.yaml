@@ -16,7 +16,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4
 
-      - name: Terraform fmt (check)
+      - name: Terraform FMT (check)
         run: terraform -chdir=infra fmt -check -recursive
 
   validate:
@@ -31,10 +31,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 # v4
 
-      - name: Terraform init
+      - name: Terraform Init
         run: terraform -chdir=infra init -backend=false
 
-      - name: Terraform validate
+      - name: Terraform Validate
         run: terraform -chdir=infra validate
 
   tflint:
