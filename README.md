@@ -15,11 +15,11 @@ User flow can be simulated locally, create `config.json` locally and add `auth_p
 
 ```
 
-You can then run `node local_server.js` to similar the user workflow, which will pass `auth_password` in.
+You can then run `node local_server.js` to simulate the user workflow, which will pass `auth_password` in.
 
 ## Infrastructure
 
-The website's infrastructure is hosted on AWS and managed by Terraform. The website files are hosted within two S3 buckets and made available via Cloudfront. One each for the `www.` and non-`www.` prefixed domain.
+The website's infrastructure is hosted on AWS and managed by Terraform. The website files are hosted within an S3 bucket and made available via Cloudfront.
 
 ### Prerequisites
 
@@ -90,6 +90,13 @@ Tearing down the infrastructure can be achieved by the same `Makefile`:
 ```shell
 make destroy-site
 ```
+
+## Planned Improvements
+
+The big day may have passed, but I do still have some improvements in mind for this project:
+- [] Update to use two S3 buckets, one for `www.`-prefixed traffic, the other without the prefix.
+- [] Remote Backend Hosting
+- [] Full Deployment Workflow
 
 ## Acknowledgements
 
