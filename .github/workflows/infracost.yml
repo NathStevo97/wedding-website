@@ -44,7 +44,7 @@ jobs:
       #     ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Setup Infracost
-        uses: infracost/actions/setup@v3
+        uses: infracost/actions/setup@v4
         # See https://github.com/infracost/actions/tree/master/setup for other inputs
         # If you can't use this action, use Docker image infracost/infracost:ci-0.10
         with:
@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Infracost
-        uses: infracost/actions/setup@v3
+        uses: infracost/actions/setup@v4
         with:
           api-key: ${{ secrets.INFRACOST_API_KEY }}
 
