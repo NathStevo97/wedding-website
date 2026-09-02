@@ -12,7 +12,7 @@ repos:
     - id: black
       name: black
 -   repo: https://github.com/AleksaC/terraform-py
-    rev: v1.12.2
+    rev: v1.16.1
     hooks:
       - id: tf-fmt
       - id: tf-validate
