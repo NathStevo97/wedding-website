@@ -78,10 +78,9 @@ The website's infrastructure is hosted on AWS and managed by Terraform. The webs
 
 ### Deployment
 
-The infrastructure can be deployed from the `infra` directory and utilising the provided `Makefile`.
+The infrastructure can be deployed from the `terraform` directory and utilising the provided `Makefile`.
 
 ```shell
-cd infra
 make build-site
 ```
 

@@ -1,4 +1,4 @@
-TF_DIR := infra
+TF_DIR := terraform
 
 
 init-site:

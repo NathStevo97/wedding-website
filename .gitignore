@@ -9,10 +9,10 @@
 **/.tfstate.*
 
 **/*.tfvars
-infra/terraform.tfvars
+terraform/terraform.tfvars
 
-infra/modules/cloudfront/lambda_package/**
-infra/modules/cloudfront/auth_function.zip
+terraform/modules/cloudfront/lambda_package/**
+terraform/modules/cloudfront/auth_function.zip
 
 **/config.json
 **/*.zip

@@ -17,7 +17,7 @@ jobs:
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
 
       - name: Terraform FMT (check)
-        run: terraform -chdir=infra fmt -check -recursive
+        run: terraform -chdir=terraform fmt -check -recursive
 
   validate:
     name: Terraform validate
@@ -32,10 +32,10 @@ jobs:
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
 
       - name: Terraform Init
-        run: terraform -chdir=infra init -backend=false
+        run: terraform -chdir=terraform init -backend=false
 
       - name: Terraform Validate
-        run: terraform -chdir=infra validate
+        run: terraform -chdir=terraform validate
 
   tflint:
     name: TFLint
@@ -68,4 +68,4 @@ jobs:
 
       # Run tflint command in each directory recursively # use --force if you want to continue with workflow although errors are there
       - name: Run TFLint
-        run: tflint -f compact --chdir ${{ github.workspace }}/infra
+        run: tflint -f compact --chdir ${{ github.workspace }}/terraform
