@@ -93,6 +93,7 @@ make destroy-site
 ## Planned Improvements
 
 The big day may have passed, but I do still have some improvements in mind for this project:
+
 - [] Update to use two S3 buckets, one for `www.`-prefixed traffic, the other without the prefix.
 - [] Remote Backend Hosting
 - [] Full Deployment Workflow

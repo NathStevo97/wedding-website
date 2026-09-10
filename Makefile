@@ -25,3 +25,9 @@ secure-lint:
 	terraform validate
 	tflint
 	checkov -d .
+
+build-site-docker:
+	docker build -t wedding-website:latest .
+
+run-site-docker:
+	docker run -p 8080:80 -d --name wedding-website wedding-website:latest
