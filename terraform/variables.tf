@@ -1,11 +1,13 @@
 variable "domain_name" {
-  description = "The S3 Bucket Name/Domain Name"
+  description = "Optional custom domain; leave empty to use CloudFront's generated hostname"
   type        = string
+  default     = ""
 }
 
 variable "hosted_zone_id" {
-  description = "The Hosted Zone Id of the domain"
+  description = "Optional Route 53 hosted zone ID for the custom domain"
   type        = string
+  default     = ""
 }
 
 variable "site_password" {

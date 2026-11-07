@@ -34,17 +34,11 @@ resource "aws_iam_policy_attachment" "lambda_edge_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-data "template_file" "config_json" {
-  template = file("${path.module}/lambdas/config.json.tpl")
-
-  vars = {
-    site_password = var.site_password
-  }
-}
-
 resource "local_file" "config_json" {
   filename = "${path.module}/lambdas/${local.function_filename}/config.json"
-  content  = data.template_file.config_json.rendered
+  content = templatefile("${path.module}/lambdas/config.json.tpl", {
+    site_password = var.site_password
+  })
 }
 
 data "archive_file" "lambda_zip" {
@@ -56,12 +50,17 @@ data "archive_file" "lambda_zip" {
 }
 
 resource "aws_lambda_function" "auth_lambda" {
+  #checkov:skip=CKV_AWS_50: Lambda@Edge does not support X-Ray tracing.
+  #checkov:skip=CKV_AWS_272: Lambda@Edge does not support Lambda code-signing configurations.
+  #checkov:skip=CKV_AWS_115: Lambda@Edge does not support reserved concurrency limits.
+  #checkov:skip=CKV_AWS_117: Lambda@Edge functions cannot be attached to a VPC.
+  #checkov:skip=CKV_AWS_116: Lambda@Edge does not support dead-letter queues.
   filename         = data.archive_file.lambda_zip.output_path # The zipped file containing the above JS code
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   function_name    = "login-auth-lambda"
   role             = aws_iam_role.lambda_edge_role.arn
   handler          = "${local.function_filename}.handler"
-  runtime          = "nodejs18.x"
+  runtime          = "nodejs22.x"
   publish          = true
 
   skip_destroy = true
