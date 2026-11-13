@@ -1,4 +1,4 @@
-FROM nginx:1.31.6-alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2
+FROM nginx:1.31.8-alpine@sha256:fed7e14be83cbd2661a75cdc5b872d936cf155d46c327084d30b8df19ae88d72
 
 # Set Working Directory to Nginx HTML directory
 WORKDIR /usr/share/nginx/html
